@@ -22,7 +22,7 @@
             </div>
           </v-layout>
         </v-flex>
-        <v-flex>
+        <v-flex my-5>
           <v-layout
             column
             fill-height
@@ -31,7 +31,7 @@
             <div>
               <v-img
                 src="/undraw_code_review.png"
-                contain=true
+                contain
                 height="50vh"
                 width="50vh"
               ></v-img>
@@ -43,7 +43,6 @@
     <v-flex xs12>
       <v-img
         src="/about_me.jpg"
-        aspect-ratio="1"
         width="100%"
       ></v-img>
     </v-flex>

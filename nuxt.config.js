@@ -31,7 +31,8 @@ export default {
   ** Global CSS
   */
   css: [
-    '~/assets/style/styles.scss'
+    '~/assets/style/styles.scss',
+    '~/assets/style/main.styl'
   ],
   styleResources:{
   },
