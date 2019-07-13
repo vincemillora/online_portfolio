@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
+
+body{
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+.header {
+  padding-right: 10vw;
+  padding-left: 10vw;
+  background: transparent;
+}
+
+/*   
+    Spot is the span on the inside of the href that
+    fills the parent and makes the hover and link work
+    for the entire div
+*/
+
+.custom-button {
+  &-svg-wrapper {
+    margin-top: 0;
+    position: relative;
+    width: 100px;
+    /*make sure to use same height/width as in the html*/
+    height: 40px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  &-svg-wrapper:hover #shape {
+    stroke-dasharray: 50 0;
+    stroke-width: 6px;
+    stroke-dashoffset: 0;
+    stroke: #41B883;
+  }
+
+  &-svg-text {
+    text-anchor: middle;
+    fill: #35495E;
+    font: 'Kosugi Maru', sans-serif;
+    text-transform: none;
+  }
+}
+
+#shape {
+  stroke-width: 6px;
+  fill: transparent;
+  stroke: #35495E;
+  stroke-dasharray: 85 400;
+  stroke-dashoffset: -145;
+  transition: 1s all ease;
+}
+

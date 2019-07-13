@@ -31,7 +31,10 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/style/styles.scss'
   ],
+  styleResources:{
+  },
   /*
   ** Plugins to load before mounting the App
   */
@@ -65,6 +68,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
+    extractCSS: true,
     extend(config, ctx) {
     }
   }
