@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
 
 body{
-  font-family: 'Kosugi Maru', sans-serif;
+  color: #35495E !important;
 }
 
 .header {
@@ -10,11 +10,9 @@ body{
   background: transparent;
 }
 
-/*   
-    Spot is the span on the inside of the href that
-    fills the parent and makes the hover and link work
-    for the entire div
-*/
+.web-component {
+  padding: 2vh 10%;
+}
 
 .custom-button {
   &-svg-wrapper {
@@ -39,7 +37,7 @@ body{
   &-svg-text {
     text-anchor: middle;
     fill: #35495E;
-    font: 'Kosugi Maru', sans-serif;
+    font-family: 'Kosugi Maru', sans-serif !important;
     text-transform: none;
   }
 }
@@ -53,3 +51,6 @@ body{
   transition: 1s all ease;
 }
 
+.primary-color {
+  color: #41B883 !important;
+}
