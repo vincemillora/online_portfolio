@@ -57,6 +57,29 @@
               </svg>
             </div>
           </v-btn>
+          <v-btn
+            flat
+            nuxt
+            to="/contact"
+            class="px-0"
+            color="transparent">
+            <div class="custom-button-svg-wrapper">
+              <svg 
+                height="40" 
+                width="100">
+                <rect 
+                  id="shape" 
+                  height="40" 
+                  width="100"/>
+                <text 
+                  x="50%" 
+                  y="70%" 
+                  class="subheading custom-button-svg-text font-weight-light">
+                  Contact
+                </text>
+              </svg>
+            </div>
+          </v-btn>
         </v-flex>
         <v-flex 
           text-xs-right
@@ -92,120 +115,99 @@
     </v-content>
     <v-footer 
       class="color-transparent"
-      height="15vh">
+      height="12vh">
       <v-layout 
         column  
-        fill-height>
-        <v-flex 
-          xs9
-          class="header">
-          <v-layout row>
-            <v-flex xs4>
-              <v-btn 
-                fab
-                depressed
-                class="social-button-wrapper"
-                href="https://www.facebook.com/vince.millora"
-                target="_blank">
-                <span 
-                  class="title"
-                  id="icon">
-                  <font-awesome-icon  
-                    :icon="['fab', 'facebook-f']"/>
-                </span>
-              </v-btn>
-              <v-btn 
-                fab
-                depressed
-                class="social-button-wrapper"
-                href="https://twitter.com/VinceMillora"
-                target="_blank">
-                <span 
-                  class="title"
-                  id="icon">
-                  <font-awesome-icon  
-                    :icon="['fab', 'twitter']"/>
-                </span>
-              </v-btn>
-              <v-btn 
-                fab
-                depressed
-                class="social-button-wrapper"
-                href="https://www.instagram.com/vcmillora/"
-                target="_blank">
-                <span 
-                  class="title"
-                  id="icon">
-                  <font-awesome-icon  
-                    :icon="['fab', 'instagram']"/>
-                </span>
-              </v-btn>
-              <v-btn 
-                fab
-                depressed
-                class="social-button-wrapper"
-                href="https://www.linkedin.com/in/vince-millora-3606a0143/"
-                target="_blank">
-                <span 
-                  class="title"
-                  id="icon">
-                  <font-awesome-icon  
-                    :icon="['fab', 'linkedin-in']"/>
-                </span>
-              </v-btn>
-              <v-btn 
-                fab
-                depressed
-                class="social-button-wrapper"
-                href="https://qiita.com/Binsu"
-                target="_blank">
-                <span 
-                  class="title"
-                  id="icon">
-                  <font-awesome-icon  
-                    :icon="['fas', 'newspaper']"/>
-                </span>
-              </v-btn>
-            </v-flex>
-            <v-flex 
-              text-xs-center
-              xs4
-              pt-3>
-              <v-btn
-                flat
-                nuxt
-                to="/"
-                class="px-0"
-                color="transparent">
-                <div class="custom-button-svg-wrapper">
-                  <svg 
-                    height="40" 
-                    width="100">
-                    <rect 
-                      id="shape" 
-                      height="40" 
-                      width="100"/>
-                    <text 
-                      x="50%" 
-                      y="75%" 
-                      class="headline custom-button-svg-text font-weight-bold">
-                      ビンス
-                    </text>
-                  </svg>
-                </div>
-              </v-btn>
-            </v-flex>
-          </v-layout>
+        fill-height
+        text-xs-center>
+        <v-flex xs8>
+          <v-btn 
+            fab
+            depressed
+            class="social-button-wrapper"
+            href="https://www.facebook.com/vince.millora"
+            target="_blank">
+            <span 
+              class="title"
+              id="icon">
+              <font-awesome-icon  
+                :icon="['fab', 'facebook-f']"/>
+            </span>
+          </v-btn>
+          <v-btn 
+            fab
+            depressed
+            class="social-button-wrapper"
+            href="https://twitter.com/VinceMillora"
+            target="_blank">
+            <span 
+              class="title"
+              id="icon">
+              <font-awesome-icon  
+                :icon="['fab', 'twitter']"/>
+            </span>
+          </v-btn>
+          <v-btn 
+            fab
+            depressed
+            class="social-button-wrapper"
+            href="https://www.instagram.com/vcmillora/"
+            target="_blank">
+            <span 
+              class="title"
+              id="icon">
+              <font-awesome-icon  
+                :icon="['fab', 'instagram']"/>
+            </span>
+          </v-btn>
+          <v-btn 
+            fab
+            depressed
+            class="social-button-wrapper"
+            href="https://www.linkedin.com/in/vince-millora-3606a0143/"
+            target="_blank">
+            <span 
+              class="title"
+              id="icon">
+              <font-awesome-icon  
+                :icon="['fab', 'linkedin-in']"/>
+            </span>
+          </v-btn>
+          <v-btn 
+            fab
+            depressed
+            class="social-button-wrapper"
+            href="https://github.com/vincemillora"
+            target="_blank">
+            <span 
+              class="title"
+              id="icon">
+              <font-awesome-icon  
+                :icon="['fab', 'github']"/>
+            </span>
+          </v-btn>
+          <v-btn 
+            fab
+            depressed
+            class="social-button-wrapper"
+            href="https://qiita.com/Binsu"
+            target="_blank">
+            <span 
+              class="title"
+              id="icon">
+              <font-awesome-icon  
+                :icon="['fas', 'newspaper']"/>
+            </span>
+          </v-btn>
         </v-flex>
         <v-flex
           class="primary-color-background"
           justify-center
           text-xs-center
           white--text
-          xs3
-          mt-4
-          py-3>
-          &copy;2019 — <strong>vcmillora</strong>
+          py-2
+          xs4>
+          &copy;2019 — <strong>ビンス</strong>
         </v-flex>
       </v-layout>
     </v-footer>

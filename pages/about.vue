@@ -119,6 +119,24 @@
           <span class="title">{{about}}</span>
         </v-flex>
       </v-layout>
+      <v-layout mb-4>
+        <v-flex 
+          xs4
+          px-5
+          text-xs-right>
+          <span class="display-1">
+            <font-awesome-icon 
+              color="#41B883" 
+              :icon="['fas', 'language']"/>
+            Languages
+          </span>
+        </v-flex>
+        <v-flex 
+          xs8
+          pa-2>
+          <span class="title">{{about}}</span>
+        </v-flex>
+      </v-layout>
     </v-flex>
   </v-layout>
 </template>
