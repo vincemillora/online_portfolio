@@ -1,140 +1,128 @@
 <template>
-  <v-layout 
-    wrap
-    row>
+  <v-layout wrap>
     <v-flex class="web-component">
-      <v-layout>
-        <v-flex>
+      <v-layout 
+        wrap
+        justify-center>
+        <v-flex 
+          xs12
+          pl-1
+          py-5>
+          <span class="display-3">
+            <font-awesome-icon :icon="['fas', 'user-tie']"/>
+            Who am I.
+          </span>
+        </v-flex>
+        <v-flex 
+          xs10
+          pa-5>
+          <span class="title"> {{ about }} </span>
+          <span class="title"> Here is my <a>resume</a> and I hope I could interest you in some way or another. </span> 
+        </v-flex>
+      </v-layout>
+      <v-layout column>
+        <v-flex 
+          xs12
+          py-5>
+          <span class="display-3">
+            <font-awesome-icon :icon="['fas', 'brain']"/>
+            What I Know.
+          </span>
+        </v-flex>
+        <v-flex 
+          xs12
+          pa-5>
+          <v-layout>
+            <v-flex 
+              xs6
+              ml-5>
+              <span class="headline font-weight-bold primary-color">My Education and Certificates</span>
+              <v-layout column>
+                <v-flex 
+                  my-4
+                  pt-1
+                  pl-3
+                  class="card-left-border"
+                  v-for="item in education"
+                  :key="item.id">
+                  <span class="title"> {{item.type}} </span>
+                  <v-flex 
+                    xs8 
+                    pt-3
+                    text-xs-right>
+                    <span class="title primary-color"> {{item.degree}} </span> <br/>
+                    <span> {{item.focus}} </span> <br/>
+                    <span> {{item.time}} </span> <br/>
+                  </v-flex>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+            <v-flex 
+              xs6
+              ml-5>
+              <span class="headline font-weight-bold primary-color">My Skills</span>
+              <v-layout column>
+                <v-flex 
+                  my-4
+                  pt-1
+                  pl-3
+                  class="card-left-border"
+                  v-for="item in skills"
+                  :key="item.id">
+                  <span class="title primary-color"> {{item.title}} </span>
+                  <v-flex 
+                    ml-4
+                    my-2
+                    v-for="skill in item.items"
+                    :key="skill.name">
+                    <span class="title"> {{skill.name}} <br/></span> 
+                  </v-flex>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+          </v-layout>
+        </v-flex>
+      </v-layout>
+      <v-layout column>
+        <v-flex 
+          xs12 
+          pl-1
+          py-5>
+          <span class="display-3">
+            <font-awesome-icon :icon="['fas', 'road']"/>
+            Where I've been.
+          </span>
           <v-layout
-            column
-            fill-height
-            align-center
+            pa-5 
+            wrap 
             justify-center>
-            <div>
-              <v-flex x-12>
-                <span class="display-2">Software Developer, Creative Thinker, Learner.</span>
-              </v-flex>
+            <v-flex
+              xs10
+              class="timeline"
+              text-xs-center
+              v-for="item in experience"
+              :key="item.id">
+              <span 
+                v-if="experience.indexOf(item) % 2 !== 0"
+                class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
+              </span>
+              <span class="title font-weight-bold">{{item.company}}</span> as a 
+              <span class="title primary-color">{{item.position}}</span>
+              <span
+                v-if="experience.indexOf(item) % 2 === 0"
+                class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
+              </span>
               <v-flex 
-                x-12
-                mt-5>
-                <span class="title primary-color font-weight-regular">I'm a web and systems developer, and a computer games enthusiast.</span>
+                :ml-5="experience.indexOf(item) % 2 !== 0"
+                :mr-5="experience.indexOf(item) % 2 === 0">
+                <span>{{item.time}}</span><br/>
+                <span>{{item.location}}</span> 
+                <v-flex mt-3>
+                  <span class="title"> {{item.body}} </span>
+                </v-flex>
               </v-flex>
-            </div>
+            </v-flex>
           </v-layout>
-        </v-flex>
-        <v-flex my-5>
-          <v-layout
-            column
-            fill-height
-            align-center
-            justify-center>
-            <div>
-              <v-img
-                src="/undraw_code_review.png"
-                contain
-                height="50vh"
-                width="50vh"
-              ></v-img>
-            </div>
-          </v-layout>
-        </v-flex>
-      </v-layout>
-    </v-flex>
-    <v-flex xs12>
-      <v-img
-        src="/about_me.jpg"
-        width="100%"
-      ></v-img>
-    </v-flex>
-    <v-flex class="web-component">
-      <v-layout mb-4>
-        <v-flex 
-          xs4
-          px-5
-          text-xs-right>
-          <span class="display-1">
-            <font-awesome-icon 
-              color="#41B883" 
-              :icon="['fas', 'user-tie']"/>
-            About Me
-          </span>
-        </v-flex>
-        <v-flex 
-          xs8
-          pa-2>
-          <span class="title">{{about}}</span>
-        </v-flex>
-      </v-layout>
-      <v-layout mb-4>
-        <v-flex 
-          xs4 
-          px-5
-          text-xs-right>
-          <span class="display-1">
-            <font-awesome-icon 
-              color="#41B883" 
-              :icon="['fas', 'briefcase']"/>
-            Experience
-          </span>
-        </v-flex>
-        <v-flex 
-          xs8
-          pa-2>
-          <span class="title">{{about}}</span>
-        </v-flex>
-      </v-layout>
-      <v-layout mb-4>
-        <v-flex 
-          xs4
-          px-5
-          text-xs-right>
-          <span class="display-1">
-            <font-awesome-icon 
-              color="#41B883" 
-              :icon="['fas', 'book-open']"/>
-            Education
-          </span>
-        </v-flex>
-        <v-flex 
-          xs8
-          pa-2>
-          <span class="title">{{about}}</span>
-        </v-flex>
-      </v-layout>
-      <v-layout mb-4>
-        <v-flex 
-          xs4
-          px-5
-          text-xs-right>
-          <span class="display-1">
-            <font-awesome-icon 
-              color="#41B883" 
-              :icon="['fas', 'certificate']"/>
-            Achievements
-          </span>
-        </v-flex>
-        <v-flex 
-          xs8
-          pa-2>
-          <span class="title">{{about}}</span>
-        </v-flex>
-      </v-layout>
-      <v-layout mb-4>
-        <v-flex 
-          xs4
-          px-5
-          text-xs-right>
-          <span class="display-1">
-            <font-awesome-icon 
-              color="#41B883" 
-              :icon="['fas', 'language']"/>
-            Languages
-          </span>
-        </v-flex>
-        <v-flex 
-          xs8
-          pa-2>
-          <span class="title">{{about}}</span>
         </v-flex>
       </v-layout>
     </v-flex>
@@ -145,8 +133,144 @@
 export default {
   data() {
     return {
-      about: 'about me',
-
+      about: "Hi there, I'm Vince Millora, a guy from the Philippines 🇵🇭🇵🇭. I'm developer, a software developer, that enjoys coding " + 
+      "and solving different logical problems. I'm currently a student studying the Japanese language at " +
+      "Bridge Institute of Technology in Okutama, Tokyo, Japan. I'm living inside the dorm if the school. " + 
+      "In the morning, I study the Japanese language by developing an I.T. project " +
+      "and at the end of the school's semester, I present my project using Japanese. In the afternoon, " + 
+      "I'm a Web Developer of 株式会社Jellyfish.",
+      experience: [
+        {
+          id: 1,
+          company: '株式会社Jellyfish',
+          position: 'Junior Front-end Web Developer',
+          location: 'Tokyo, Japan 🇯🇵',
+          time: "April 2019 - Present",
+          body: '株式会社Jellyfish is a company that helps people around the ' + 
+                'world to find opportunities in Japan. I too was someone who ' + 
+                'took an opportunity from 株式会社Jellyfish and became a Japanese ' + 
+                'language student and a Web Developer at Bridge Institute of Technology ' + 
+                '(BIT). Specifically, I am a member of the front-end development team of ' + 
+                "BIT's I.T. division.",
+        },
+        {
+          id: 2,
+          company: '株式会社Jellyfish',
+          position: 'Blockchain Developer',
+          location: 'Tokyo, Japan 🇯🇵',
+          time: "October 2018 - March 2019",
+          body: 'Before I became a Front-end Web Developer at 株式会社Jellyfish, ' + 
+                'I participated in a Blockchain bootcamp at Bridge Institute of Technology ' + 
+                'for 3 months. After the bootcamp, I was recruited as a Blockchain Developer ' + 
+                'for one of the projects  of the company. I was a member of that project ' + 
+                'until the project closed March of 2019. ',
+        },
+        {
+          id: 3,
+          company: 'Next BPO Solutions, Inc.',
+          position: 'Web Developer',
+          location: 'Davao City, Philippines 🇵🇭',
+          time: "August 2017 - August 2018",
+          body: 'My first full-time job was at Next BPO Solutions, Inc. as a Web Developer. ' + 
+                'Next BPO Solutions is an outsourcing company and I was assigned to a project from  ' + 
+                'DXC Technology, a company that resulted from the merger of Hewlett Packard Enterprise ' + 
+                'and Computer Sciences Corporation. I was with the project until I left for Japan. ',
+        },
+        {
+          id: 4,
+          company: 'University of the Philippines Mindanao LiDAR II Project',
+          position: 'Project Intern',
+          location: 'Davao City, Philippines 🇵🇭',
+          time: "June 2016 - July 2016",
+          body: 'University of the Philippines requires its students to do an internship that is based ' +
+                "on the student's focus of study. Since I was focusing on Computer Sciences, I was assigned " +
+                "to the I.T. department of my university's  LiDAR II Project. This was my first experience in a " + 
+                'working environment and with a team of developers. Also, it was my first time using Git and I ' + 
+                'learned the importance of source control.',
+        },
+      ],
+      education: [
+        {
+          id: 1,
+          type: "Bridge Institute of Technology",
+          degree: "Certificate of Completion",
+          focus: "Japanese Language",
+          time: "2018 - 2020",
+        },
+        {
+          id: 2,
+          type: "PhilNITS (J.I.T.S.E)",
+          degree: "I.T. Passport Certification",
+          focus: "Certificate",
+          time: "2018",
+        },
+        {
+          id: 3,
+          type: "University of the Philippines",
+          degree: "Bachelor's Degree",
+          focus: "Computer Science",
+          time: "2013 - 2017",
+        },
+      ],
+      skills: [
+        {
+          title: 'Programming',
+          items: [
+            {
+              name: '・Front-end Web Development (SASS, Vue, React)',
+            },
+            {
+              name: '・Software Development (Java, C#)',
+            },
+            {
+              name: '・Mobile Development (Java, React Native)',
+            },
+            {
+              name: '・Database Design',
+            },
+            {
+              name: '・Database Programming (MySQL, SQLite)',
+            },
+            {
+              name: '・Blockchain Development (Ethereum)',
+            },
+          ],
+        },
+        {
+          title: 'Design',
+          items: [
+            {
+              name: '・Adobe Photoshop',
+            },
+            {
+              name: '・Adobe Illustrator',
+            },
+            {
+              name: '・UI Design',
+            },
+            {
+              name: '・Wireframe Design',
+            },
+            {
+              name: '・Graphic Design',
+            },
+          ],
+        },
+        {
+          title: 'Language',
+          items: [
+            {
+              name: '・Filipino (Native)',
+            },
+            {
+              name: '・English (Proficient)',
+            },
+            {
+              name: '・Japanese (Conversational)',
+            },
+          ],
+        },
+      ],
     }
   }
 }
