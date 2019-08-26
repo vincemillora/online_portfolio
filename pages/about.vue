@@ -7,7 +7,10 @@
         <v-flex 
           xs12
           pl-1
-          py-5>
+          py-5
+          data-aos="flip-up"
+          data-aos-duration="2000"
+          data-aos-once="false">
           <span class="display-3">
             <font-awesome-icon :icon="['fas', 'user-tie']"/>
             Who am I.
@@ -15,15 +18,22 @@
         </v-flex>
         <v-flex 
           xs10
-          pa-5>
+          pa-5
+          data-aos="zoom-in"
+          data-aos-duration="2000"
+          data-aos-once="false"
+          data-aos-anchor-placement="bottom">
           <span class="title"> {{ about }} </span>
-          <span class="title"> Here is my <a>resume</a> and I hope I could interest you in some way or another. </span> 
+          <span class="title"> Right now, I'm looking for a job opportunity and I hope I could interest you in some way or another. Here is my <a>resume</a> just in case.</span> 
         </v-flex>
       </v-layout>
       <v-layout column>
         <v-flex 
           xs12
-          py-5>
+          py-5
+          data-aos="flip-up"
+          data-aos-duration="2000"
+          data-aos-once="false">
           <span class="display-3">
             <font-awesome-icon :icon="['fas', 'brain']"/>
             What I Know.
@@ -35,7 +45,10 @@
           <v-layout>
             <v-flex 
               xs6
-              ml-5>
+              ml-5
+              data-aos="fade-up-right"
+              data-aos-duration="2000"
+              data-aos-once="false">
               <span class="headline font-weight-bold primary-color">My Education and Certificates</span>
               <v-layout column>
                 <v-flex 
@@ -59,7 +72,10 @@
             </v-flex>
             <v-flex 
               xs6
-              ml-5>
+              ml-5
+              data-aos="fade-up-left"
+              data-aos-duration="2000"
+              data-aos-once="false">
               <span class="headline font-weight-bold primary-color">My Skills</span>
               <v-layout column>
                 <v-flex 
@@ -88,10 +104,15 @@
           xs12 
           pl-1
           py-5>
-          <span class="display-3">
-            <font-awesome-icon :icon="['fas', 'road']"/>
-            Where I've been.
-          </span>
+          <v-flex
+            data-aos="flip-up"
+            data-aos-duration="2000"
+            data-aos-once="false">
+            <span class="display-3">
+              <font-awesome-icon :icon="['fas', 'road']"/>
+              Where I've been.
+            </span>
+          </v-flex>
           <v-layout
             pa-5 
             wrap 
@@ -101,7 +122,10 @@
               class="timeline"
               text-xs-center
               v-for="item in experience"
-              :key="item.id">
+              :key="item.id"
+              data-aos="fade-right"
+              data-aos-duration="2000"
+              data-aos-once="false">
               <span 
                 v-if="experience.indexOf(item) % 2 !== 0"
                 class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
@@ -130,10 +154,13 @@
 </template>
 
 <script>
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default {
   data() {
     return {
-      about: "Hi there, I'm Vince Millora, a guy from the Philippines 🇵🇭🇵🇭. I'm developer, a software developer, that enjoys coding " + 
+      about: "Hi there, my name is Vince Millora, a guy from the Philippines 🇵🇭🇵🇭. I'm developer, a software developer, that enjoys coding " + 
       "and solving different logical problems. I'm currently a student studying the Japanese language at " +
       "Bridge Institute of Technology in Okutama, Tokyo, Japan. I'm living inside the dorm if the school. " + 
       "In the morning, I study the Japanese language by developing an I.T. project " +
@@ -272,6 +299,9 @@ export default {
         },
       ],
     }
-  }
+  },
+  mounted() {
+    AOS.init();
+  },
 }
 </script>

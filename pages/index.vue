@@ -10,7 +10,11 @@
       <v-layout wrap>
         <v-flex class="web-component whole-page">
           <v-layout>
-            <v-flex>
+            <v-flex 
+              data-aos="fade-right"
+              data-aos-duration="2000"
+              data-aos-mirror="true"
+              data-aos-once="false">
               <v-layout
                 column
                 fill-height
@@ -28,7 +32,12 @@
                 </div>
               </v-layout>
             </v-flex>
-            <v-flex my-5>
+            <v-flex 
+              my-5
+              data-aos="fade-left"
+              data-aos-duration="2000"
+              data-aos-mirror="true"
+              data-aos-once="false">
               <v-layout
                 column
                 fill-height
@@ -46,11 +55,16 @@
             </v-flex>
           </v-layout>
         </v-flex>
-        <v-flex xs12>
+        <v-flex 
+          xs12
+          pb-5
+          mb-5
+          data-aos="fade-up"
+          data-aos-duration="2000"
+          data-aos-once="false">
           <v-img
             src="/about_me.jpg"
-            width="100%"
-          ></v-img>
+            width="100%"/>
         </v-flex>
       </v-layout>
       <About id="about"/>
@@ -66,6 +80,8 @@ import VuetifyLogo from '~/components/VuetifyLogo.vue';
 import Contact from '~/pages/contact';
 import About from '~/pages/about';
 import Project from '~/pages/project';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default {
   components: {
@@ -74,6 +90,9 @@ export default {
     Contact,
     About,
     Project,
-  }
+  },
+  mounted() {
+    AOS.init();
+  },
 }
 </script>

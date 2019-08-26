@@ -172,27 +172,26 @@
                 :icon="['fas', 'newspaper']"/>
             </span>
           </v-btn>
-          <v-btn 
-            fab
-            depressed
-            class="social-button-wrapper"
-            to="/contact">
-            <span 
-              class="title"
-              id="icon">
-              <font-awesome-icon  
-                :icon="['fas', 'envelope']"/>
-            </span>
-          </v-btn>
         </v-flex>
         <v-flex
-          class="primary-color-background"
-          justify-center
-          text-xs-center
-          white--text
-          py-2
-          xs4>
-          &copy;2019 — <strong>ビンス</strong>
+          xs4
+          py-3
+          class="primary-color-background white--text">
+          <v-layout justify-center>
+          <v-flex 
+            xs5
+            pl-5
+            text-xs-left>
+            Built with <strong><a class="white--text" @click="openLink('https://nuxtjs.org/')">Nuxt.JS</a></strong>. 
+            Illustrations by <strong><a class="white--text" @click="openLink('https://undraw.co/illustrations')">unDraw</a></strong>.
+          </v-flex>
+          <v-flex 
+            xs5
+            pr-5
+            text-xs-right>
+            &copy;2019 — <strong>ビンス</strong>
+          </v-flex>
+          </v-layout>
         </v-flex>
       </v-layout>
     </v-footer>
@@ -201,8 +200,9 @@
 
 <script>
 export default {
-  data() {
-    return {
+  methods: {
+    openLink(link){
+      window.open(link);
     }
   }
 }

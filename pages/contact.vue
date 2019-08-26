@@ -2,7 +2,11 @@
   <v-layout wrap>
     <v-flex pt-5 text-xs-center class="web-component">
       <v-layout>
-        <v-flex my-5>
+        <v-flex 
+          my-5
+          data-aos="fade-up-right"
+          data-aos-duration="2000"
+          data-aos-once="false">
           <v-layout
             column
             fill-height
@@ -100,7 +104,10 @@
             </div>
           </v-layout>
         </v-flex>
-        <v-flex>
+        <v-flex
+          data-aos="fade-up-left"
+          data-aos-duration="2000"
+          data-aos-once="false">
           <v-layout
             column
             fill-height
@@ -117,7 +124,12 @@
         </v-flex>
       </v-layout>
     </v-flex>
-    <v-flex mb-5 text-xs-center>
+    <v-flex 
+      mb-5 
+      text-xs-center
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      data-aos-once="false">
       <span class="subheading font-weight-thin">
         Or, you can contact me through my social media accounts here.
         <br/>
@@ -130,6 +142,8 @@
 </template>
 
 <script>
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default {
   data() {
@@ -140,6 +154,9 @@ export default {
       text: '080-7695-7291',
       line: 'vcmillora',
     }
+  },
+  mounted() {
+    AOS.init();
   },
   methods: {
     sendMail(){
