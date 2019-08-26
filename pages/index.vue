@@ -21,7 +21,7 @@
                 align-center
                 justify-center>
                 <div>
-                  <v-flex x-12>
+                  <v-flex xs12>
                     <span class="display-2">Software Developer, Creative Thinker, Learner.🤓</span>
                   </v-flex>
                   <v-flex 

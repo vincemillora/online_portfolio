@@ -26,7 +26,7 @@
                 align-center
                 justify-center>
                 <div>
-                  <v-flex x-12>
+                  <v-flex xs12>
                     <v-img
                       src="/undraw_under_construction.png"
                       contain
