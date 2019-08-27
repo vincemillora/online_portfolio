@@ -1,7 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
+  router: {
+    base: '/online_portfolio/'
+  },
   /*
   ** Headers of the page
   */
