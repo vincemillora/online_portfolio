@@ -60,7 +60,7 @@
           pb-5
           mb-5
           data-aos="fade-up"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-once="false">
           <v-img
             src="/about_me.jpg"

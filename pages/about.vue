@@ -9,7 +9,7 @@
           pl-1
           py-5
           data-aos="flip-up"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-once="false">
           <span class="display-3">
             <font-awesome-icon :icon="['fas', 'user-tie']"/>
@@ -17,14 +17,28 @@
           </span>
         </v-flex>
         <v-flex 
-          xs10
+          xs8
           pa-5
-          data-aos="zoom-in"
-          data-aos-duration="2000"
+          data-aos="fade-up-right"
+          data-aos-duration="1000"
           data-aos-once="false"
           data-aos-anchor-placement="bottom">
           <span class="title"> {{ about }} </span>
-          <span class="title"> Right now, I'm looking for a job opportunity and I hope I could interest you in some way or another. Here is my <a>resume</a> just in case.</span> 
+          <span class="title"> Right now, I'm looking for a job opportunity and I hope I could interest you in some way or another. You can checkout my resume <a @click="openLink('https://drive.google.com/file/d/1qIuwWvRrsr-SkA2S0QGQzq2Rv7QSNLfl/view?usp=sharing')">here</a> just in case.</span> 
+        </v-flex>
+        <v-flex 
+          xs4
+          
+          data-aos="fade-up-left"
+          data-aos-duration="1000"
+          data-aos-once="false"
+          data-aos-anchor-placement="bottom">
+          <v-img
+            class="profile-pic"
+            src="/prof_pic.jpg"
+            contain
+            width="40vh"
+          ></v-img>
         </v-flex>
       </v-layout>
       <v-layout column>
@@ -32,7 +46,7 @@
           xs12
           py-5
           data-aos="flip-up"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-once="false">
           <span class="display-3">
             <font-awesome-icon :icon="['fas', 'brain']"/>
@@ -45,11 +59,13 @@
           <v-layout>
             <v-flex 
               xs6
-              ml-5
-              data-aos="fade-up-right"
-              data-aos-duration="2000"
-              data-aos-once="false">
-              <span class="headline font-weight-bold primary-color">My Education and Certificates</span>
+              ml-5>
+              <v-flex
+                data-aos="flip-up"
+                data-aos-duration="1000"
+                data-aos-once="false">
+                <span class="headline font-weight-bold primary-color">My Education and Certificates</span>
+              </v-flex>
               <v-layout column>
                 <v-flex 
                   my-4
@@ -57,7 +73,10 @@
                   pl-3
                   class="card-left-border"
                   v-for="item in education"
-                  :key="item.id">
+                  :key="item.id"
+                  data-aos="fade-up-right"
+                  data-aos-duration="1000"
+                  data-aos-once="false">
                   <span class="title"> {{item.type}} </span>
                   <v-flex 
                     xs8 
@@ -72,11 +91,13 @@
             </v-flex>
             <v-flex 
               xs6
-              ml-5
-              data-aos="fade-up-left"
-              data-aos-duration="2000"
-              data-aos-once="false">
-              <span class="headline font-weight-bold primary-color">My Skills</span>
+              ml-5>
+              <v-flex
+                data-aos="flip-up"
+                data-aos-duration="1000"
+                data-aos-once="false">
+                <span class="headline font-weight-bold primary-color">My Skills</span>
+              </v-flex>
               <v-layout column>
                 <v-flex 
                   my-4
@@ -84,7 +105,10 @@
                   pl-3
                   class="card-left-border"
                   v-for="item in skills"
-                  :key="item.id">
+                  :key="item.id"
+                  data-aos="fade-up-left"
+                  data-aos-duration="1000"
+                  data-aos-once="false">
                   <span class="title primary-color"> {{item.title}} </span>
                   <v-flex 
                     ml-4
@@ -106,7 +130,7 @@
           py-5>
           <v-flex
             data-aos="flip-up"
-            data-aos-duration="2000"
+            data-aos-duration="1000"
             data-aos-once="false">
             <span class="display-3">
               <font-awesome-icon :icon="['fas', 'road']"/>
@@ -124,7 +148,7 @@
               v-for="item in experience"
               :key="item.id"
               data-aos="fade-right"
-              data-aos-duration="2000"
+              data-aos-duration="1000"
               data-aos-once="false">
               <span 
                 v-if="experience.indexOf(item) % 2 !== 0"
@@ -144,6 +168,9 @@
                 <v-flex mt-3>
                   <span class="title"> {{item.body}} </span>
                 </v-flex>
+                <v-flex mt-2>
+                  <span > You can find out more about the company <a @click="openLink(item.link)">here</a>. </span>
+                </v-flex>
               </v-flex>
             </v-flex>
           </v-layout>
@@ -160,11 +187,11 @@ import 'aos/dist/aos.css';
 export default {
   data() {
     return {
-      about: "Hi there, my name is Vince Millora, a guy from the Philippines 🇵🇭🇵🇭. I'm developer, a software developer, that enjoys coding " + 
+      about: "Hi there, my name is Vince Millora, a guy from the Philippines 🇵🇭🇵🇭. I'm a developer —a software developer— that enjoys coding " + 
       "and solving different logical problems. I'm currently a student studying the Japanese language at " +
-      "Bridge Institute of Technology in Okutama, Tokyo, Japan. I'm living inside the dorm if the school. " + 
+      "Bridge Institute of Technology in Okutama, Tokyo, Japan. I'm residing in the residence of the school's dorm. " + 
       "In the morning, I study the Japanese language by developing an I.T. project " +
-      "and at the end of the school's semester, I present my project using Japanese. In the afternoon, " + 
+      "and during the end of the school's semester, I present my project using Japanese. In the afternoon, " + 
       "I'm a Web Developer of 株式会社Jellyfish.",
       experience: [
         {
@@ -179,6 +206,7 @@ export default {
                 'language student and a Web Developer at Bridge Institute of Technology ' + 
                 '(BIT). Specifically, I am a member of the front-end development team of ' + 
                 "BIT's I.T. division.",
+          link: 'https://jellyfish-g.co.jp/en/',
         },
         {
           id: 2,
@@ -191,6 +219,7 @@ export default {
                 'for 3 months. After the bootcamp, I was recruited as a Blockchain Developer ' + 
                 'for one of the projects  of the company. I was a member of that project ' + 
                 'until the project closed March of 2019. ',
+          link: 'http://bit-okutama.jp/',
         },
         {
           id: 3,
@@ -202,6 +231,7 @@ export default {
                 'Next BPO Solutions is an outsourcing company and I was assigned to a project from  ' + 
                 'DXC Technology, a company that resulted from the merger of Hewlett Packard Enterprise ' + 
                 'and Computer Sciences Corporation. I was with the project until I left for Japan. ',
+          link: 'https://www.nextbposolutions.com/',
         },
         {
           id: 4,
@@ -214,6 +244,7 @@ export default {
                 "to the I.T. department of my university's  LiDAR II Project. This was my first experience in a " + 
                 'working environment and with a team of developers. Also, it was my first time using Git and I ' + 
                 'learned the importance of source control.',
+          link: 'https://www.glunis.com/PH/Davao-City/1587352928186470/UP-Mindanao-Phil-Lidar-2',
         },
       ],
       education: [
@@ -226,7 +257,7 @@ export default {
         },
         {
           id: 2,
-          type: "PhilNITS (J.I.T.S.E)",
+          type: "PhilNITS (J.I.T.S.E.)",
           degree: "I.T. Passport Certification",
           focus: "Certificate",
           time: "2018",
@@ -303,5 +334,10 @@ export default {
   mounted() {
     AOS.init();
   },
+  methods: {
+    openLink(link) {
+      window.open(link);
+    }
+  }
 }
 </script>

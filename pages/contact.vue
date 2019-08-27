@@ -1,11 +1,12 @@
 <template>
   <v-layout wrap>
     <v-flex pt-5 text-xs-center class="web-component">
-      <v-layout>
+      <v-layout wrap>
         <v-flex 
+          xs6
           my-5
           data-aos="fade-up-right"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-once="false">
           <v-layout
             column
@@ -105,8 +106,9 @@
           </v-layout>
         </v-flex>
         <v-flex
+          xs6
           data-aos="fade-up-left"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
           data-aos-once="false">
           <v-layout
             column
@@ -125,18 +127,105 @@
       </v-layout>
     </v-flex>
     <v-flex 
-      mb-5 
+      xs12
       text-xs-center
       data-aos="fade-up"
-      data-aos-duration="2000"
+      data-aos-duration="1000"
       data-aos-once="false">
+      <span class="subheading"> You can download my resume <a @click="openLink('https://drive.google.com/file/d/1qIuwWvRrsr-SkA2S0QGQzq2Rv7QSNLfl/view?usp=sharing')">here</a>. </span> <br/>
       <span class="subheading font-weight-thin">
-        Or, you can contact me through my social media accounts here.
+        Or, you can contact me through my social media accounts right down here.
         <br/>
         <font-awesome-icon 
           color="#41B883" 
           :icon="['fas', 'long-arrow-alt-down']"/>
       </span>
+    </v-flex>
+    <v-flex 
+      xs12
+      mb-5 
+      text-xs-center
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-once="false">
+      <v-btn 
+        fab
+        depressed
+        class="social-button-wrapper"
+        href="https://www.facebook.com/vince.millora"
+        target="_blank">
+        <span 
+          class="title"
+          id="icon">
+          <font-awesome-icon  
+            :icon="['fab', 'facebook-f']"/>
+        </span>
+      </v-btn>
+      <v-btn 
+        fab
+        depressed
+        class="social-button-wrapper"
+        href="https://twitter.com/VinceMillora"
+        target="_blank">
+        <span 
+          class="title"
+          id="icon">
+          <font-awesome-icon  
+            :icon="['fab', 'twitter']"/>
+        </span>
+      </v-btn>
+      <v-btn 
+        fab
+        depressed
+        class="social-button-wrapper"
+        href="https://www.instagram.com/vcmillora/"
+        target="_blank">
+        <span 
+          class="title"
+          id="icon">
+          <font-awesome-icon  
+            :icon="['fab', 'instagram']"/>
+        </span>
+      </v-btn>
+      <v-btn 
+        fab
+        depressed
+        class="social-button-wrapper"
+        href="https://www.linkedin.com/in/vince-millora-3606a0143/"
+        target="_blank">
+        <span 
+          class="title"
+          id="icon">
+          <font-awesome-icon  
+            :icon="['fab', 'linkedin-in']"/>
+        </span>
+      </v-btn>
+      <v-btn 
+        fab
+        depressed
+        class="social-button-wrapper"
+        href="https://github.com/vincemillora"
+        target="_blank">
+        <span 
+          class="title"
+          id="icon">
+          <font-awesome-icon  
+            :icon="['fab', 'github']"/>
+        </span>
+      </v-btn>
+      <v-btn 
+        fab
+        depressed
+        class="social-button-wrapper"
+        href="https://qiita.com/Binsu"
+        target="_blank">
+        <span 
+          class="title"
+          id="icon">
+          <font-awesome-icon  
+            :icon="['fas', 'newspaper']"/>
+        </span>
+      </v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -161,6 +250,9 @@ export default {
   methods: {
     sendMail(){
       window.open('mailto:'+this.email);
+    },
+    openLink(link){
+      window.open(link);
     }
   }
 }

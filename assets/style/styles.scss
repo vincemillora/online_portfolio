@@ -69,6 +69,12 @@ body{
   padding: 15px;
 }
 
+.profile-pic {
+  border: 10px solid;
+  border-radius: 50%;
+  border-color: getPrimaryColor();
+}
+
 .card-left-border {
   border-left: 2px solid getPrimaryColor();
 }
