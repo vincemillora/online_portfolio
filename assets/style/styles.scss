@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
+
+$primary-color: #41B883;
+$timeline-margin: 30px;
+
+@function getPrimaryColor() {
+  @return $primary-color;
+}
+
+@function getTimelineMargin() {
+  @return $timeline-margin;
+}
+
+body{
+  color: #35495E !important;
+}
+
+.header {
+  padding-right: 10vw;
+  padding-left: 10vw;
+  background: transparent !important;
+}
+
+.web-component {
+  padding: 0 10%;
+}
+
+.about-image {
+  height: 7vh;
+  width: 7vh;
+}
+
+.timeline {
+  border-top: 2px dashed;
+  border-color: getPrimaryColor() !important;
+  padding: getTimelineMargin();
+}
+
+.timeline:nth-child(even) {
+  border-left: 2px dashed;
+  border-top-left-radius: getTimelineMargin();
+  border-bottom-left-radius: getTimelineMargin();
+  margin-right: getTimelineMargin(); 
+  text-align: left !important;
+}
+
+.timeline:nth-child(odd) {
+  border-right: 2px dashed;
+  border-top-right-radius: getTimelineMargin();
+  border-bottom-right-radius: getTimelineMargin();
+  margin-left: getTimelineMargin(); 
+  text-align: right !important;
+}
+
+.timeline:first-child {
+  border-top: 0;
+  border-top-right-radius:0;
+  border-top-left-radius:0;
+}
+
+.timeline:last-child {
+  border-bottom-right-radius:0;
+  border-bottom-left-radius:0;
+}
+
+.timeline-number {
+  background-color: getPrimaryColor();
+  border-radius: 50%;
+  padding: 15px;
+}
+
+.profile-pic {
+  border: 10px solid;
+  border-radius: 50%;
+  border-color: getPrimaryColor();
+}
+
+.card-left-border {
+  border-left: 2px solid getPrimaryColor();
+}
+
+.social-button {
+  &-wrapper {
+    background-color: white !important;
+    border: 2px solid #35495E;
+  }
+
+  &-wrapper:hover #icon {
+    color: #fff;
+    transform: rotateY(360deg);
+  }
+  
+  &-wrapper:hover {
+    top: 0;
+    background-color: #3b5999 !important;
+    transition: .5s;
+    z-index: 2;
+  }
+}
+
+.custom-button {
+  &-svg-wrapper {
+    margin-top: 0;
+    position: relative;
+    width: 100%;
+    /*make sure to use same height/width as in the html*/
+    height: 100%;
+    display: inline-block;
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  &-svg-wrapper:hover #shape {
+    stroke-dasharray: 50 0;
+    stroke-width: 6px;
+    stroke-dashoffset: 0;
+    stroke: getPrimaryColor();
+  }
+
+  &-svg-text {
+    text-anchor: middle;
+    fill: #35495E;
+    font-family: 'Kosugi Maru', sans-serif !important;
+    text-transform: none;
+  }
+}
+
+#shape {
+  stroke-width: 6px;
+  fill: transparent;
+  stroke: #35495E;
+  stroke-dasharray: 85 400;
+  stroke-dashoffset: -145;
+  transition: 1s all ease;
+}
+
+#icon {
+  color: getPrimaryColor();
+  position: relative;
+  transition: .5s;
+  z-index: 3;
+}
+
+.whole-page {
+  height: 90vh;
+}
+
+.primary-color {
+  color: getPrimaryColor() !important;
+}
+
+.primary-color-background {
+  background-color: #35495E !important;
+}
+
+.color-transparent {
+  background: transparent !important;
+}

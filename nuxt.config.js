@@ -6,7 +6,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    titleTemplate: 'ビンス - Portfolio',
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -31,16 +31,35 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/style/styles.scss',
+    '~/assets/style/main.styl'
   ],
+  styleResources:{
+  },
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
+    [
+      'nuxt-fontawesome', {
+        imports: [
+         {
+           set: '@fortawesome/free-solid-svg-icons',
+           icons: ['fas']
+         },
+         {
+           set:'@fortawesome/free-brands-svg-icons',
+           icons: ['fab']
+         }
+       ]
+      }
+    ],
     '@nuxtjs/vuetify',
   ],
   /*
@@ -65,6 +84,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
+    extractCSS: true,
     extend(config, ctx) {
     }
   }
