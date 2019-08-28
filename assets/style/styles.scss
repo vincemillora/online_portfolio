@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
 
 $primary-color: #41B883;
+$secondary-color: #35495E;
 $timeline-margin: 30px;
 
 @function getPrimaryColor() {
   @return $primary-color;
+}
+
+@function getSecondaryColor() {
+  @return $secondary-color;
 }
 
 @function getTimelineMargin() {
@@ -16,8 +21,6 @@ body{
 }
 
 .header {
-  padding-right: 10vw;
-  padding-left: 10vw;
   background: transparent !important;
 }
 
@@ -27,7 +30,7 @@ body{
 
 .about-image {
   height: 7vh;
-  width: 7vh;
+  width: 100%;
 }
 
 .timeline {
@@ -76,7 +79,12 @@ body{
 }
 
 .card-left-border {
-  border-left: 2px solid getPrimaryColor();
+  &-primary-color {
+    border-left: 2px solid getPrimaryColor();
+  }
+  &-secondary-color {
+    border-left: 2px solid getSecondaryColor();
+  }
 }
 
 .social-button {
@@ -143,7 +151,7 @@ body{
 }
 
 .whole-page {
-  height: 90vh;
+  height: 100vh;
 }
 
 .primary-color {

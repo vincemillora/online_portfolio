@@ -3,67 +3,60 @@
     column
     justify-center
     align-center>
-    <v-flex
-      xs12
-      sm8
-      md6>
+    <v-flex>
       <v-layout wrap>
-        <v-flex class="web-component whole-page">
-          <v-layout>
-            <v-flex 
-              data-aos="fade-right"
-              data-aos-duration="2000"
-              data-aos-mirror="true"
-              data-aos-once="false">
-              <v-layout
-                column
-                fill-height
-                align-center
-                justify-center>
-                <div>
-                  <v-flex xs12>
-                    <span class="display-2">Software Developer, Creative Thinker, Learner.🤓</span>
-                  </v-flex>
-                  <v-flex 
-                    x-12
-                    mt-5>
-                    <span class="title primary-color font-weight-regular">I'm a web and systems developer, and a computer games enthusiast.</span>
-                  </v-flex>
-                </div>
-              </v-layout>
-            </v-flex>
-            <v-flex 
-              my-5
-              data-aos="fade-left"
-              data-aos-duration="2000"
-              data-aos-mirror="true"
-              data-aos-once="false">
-              <v-layout
-                column
-                fill-height
-                align-center
-                justify-center>
-                <div>
-                  <v-img
-                    src="/undraw_code_review.png"
-                    contain
-                    height="50vh"
-                    width="50vh"
-                  ></v-img>
-                </div>
-              </v-layout>
-            </v-flex>
+        <v-flex 
+          xs12 
+          sm8
+          class="whole-page web-component">
+          <v-layout
+            wrap
+            fill-height
+            align-center>
+              <v-flex 
+                xs12
+                sm8
+                text-xs-center
+                text-sm-left
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                data-aos-once="false"
+                data-aos-mirror="true">
+                <span class="display-2">Software Developer, Creative Thinker, Learner.🤓</span> <br/> <br/> <br/>
+                <span class="title primary-color font-weight-regular">I'm a web and systems developer, and a computer games enthusiast.</span>
+                <v-img
+                  style="margin-top: 25px"
+                  v-if="this.$vuetify.breakpoint.xs"
+                  src="/undraw_code_review.png"
+                  contain
+                  width="100%"
+                ></v-img>
+              </v-flex>
+              <v-flex
+                xs12
+                sm4
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                data-aos-once="false"
+                data-aos-mirror="true">
+                <v-img
+                  v-if="!this.$vuetify.breakpoint.xs"
+                  src="/undraw_code_review.png"
+                  contain
+                  width="50vw"
+                ></v-img>
+              </v-flex>
           </v-layout>
         </v-flex>
         <v-flex 
           xs12
-          pb-5
-          mb-5
+          py-5
+          my-5
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-once="false">
           <v-img
-            src="/about_me.jpg"
+            :src="src"
             width="100%"/>
         </v-flex>
       </v-layout>
@@ -91,8 +84,28 @@ export default {
     About,
     Project,
   },
+  data() {
+    return {
+      src: '',
+    }
+  },
   mounted() {
     AOS.init();
+    this.isMobile = window.innerWidth < 600;
+
+    if(window.innerWidth < 600) {
+      this.src = '/prof_pic.jpg'
+    } else {
+      this.src = '/about_me.jpg'
+    }
+    
+    window.addEventListener('resize', () => {
+      if(window.innerWidth < 600) {
+        this.src = '/prof_pic.jpg'
+      } else {
+        this.src = '/about_me.jpg'
+      }
+    }, { passive: true })
   },
 }
 </script>

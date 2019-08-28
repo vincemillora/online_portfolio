@@ -3,7 +3,9 @@
     <v-flex class="web-component">
       <v-layout 
         wrap
-        justify-center>
+        justify-center
+        text-xs-center
+        text-sm-left>
         <v-flex 
           xs12
           pl-1
@@ -11,55 +13,77 @@
           data-aos="flip-up"
           data-aos-duration="1000"
           data-aos-once="false">
-          <span class="display-3">
+          <span 
+            v-bind:class="{
+              'display-3': !$vuetify.breakpoint.xs,
+              'display-2 primary-color': $vuetify.breakpoint.xs,
+            }">
             <font-awesome-icon :icon="['fas', 'user-tie']"/>
-            Who am I.
+            <br v-if="$vuetify.breakpoint.xs" />
+            Who am I
           </span>
         </v-flex>
-        <v-flex 
-          xs8
-          pa-5
-          data-aos="fade-up-right"
-          data-aos-duration="1000"
-          data-aos-once="false"
-          data-aos-anchor-placement="bottom">
-          <span class="title"> {{ about }} </span>
-          <span class="title"> Right now, I'm looking for a job opportunity and I hope I could interest you in some way or another. You can checkout my resume <a @click="openLink('https://drive.google.com/file/d/1qIuwWvRrsr-SkA2S0QGQzq2Rv7QSNLfl/view?usp=sharing')">here</a> just in case.</span> 
-        </v-flex>
-        <v-flex 
-          xs4
-          
-          data-aos="fade-up-left"
-          data-aos-duration="1000"
-          data-aos-once="false"
-          data-aos-anchor-placement="bottom">
-          <v-img
-            class="profile-pic"
-            src="/prof_pic.jpg"
-            contain
-            width="40vh"
-          ></v-img>
+        <v-flex>
+          <v-layout 
+            wrap
+            fill-height
+            align-center>
+            <v-flex 
+              xs12
+              sm8
+              :pa-5="!$vuetify.breakpoint.xs"
+              data-aos="fade-up-right"
+              data-aos-duration="1000"
+              data-aos-once="false"
+              data-aos-anchor-placement="bottom">
+              <span class="title"> {{ about }} </span>
+              <span class="title"> Right now, I'm looking for a job opportunity and I hope I could interest you in some way or another. You can checkout my resume <a @click="openLink('https://drive.google.com/file/d/1qIuwWvRrsr-SkA2S0QGQzq2Rv7QSNLfl/view?usp=sharing')">here</a> just in case.</span> 
+            </v-flex>
+            <v-flex 
+              v-if="!$vuetify.breakpoint.xs"
+              sm4 
+              data-aos="fade-up-left"
+              data-aos-duration="1000"
+              data-aos-once="false"
+              data-aos-anchor-placement="bottom">
+              <v-img
+                class="profile-pic"
+                src="/prof_pic.jpg"
+                contain
+                width="400px"
+              ></v-img>
+            </v-flex>
+          </v-layout>
         </v-flex>
       </v-layout>
-      <v-layout column>
+      <v-layout
+        wrap
+        text-xs-center
+        text-sm-left>
         <v-flex 
           xs12
           py-5
           data-aos="flip-up"
           data-aos-duration="1000"
           data-aos-once="false">
-          <span class="display-3">
+          <span 
+            v-bind:class="{
+              'display-3': !$vuetify.breakpoint.xs,
+              'display-2 primary-color': $vuetify.breakpoint.xs,
+            }"> 
             <font-awesome-icon :icon="['fas', 'brain']"/>
-            What I Know.
+            <br v-if="$vuetify.breakpoint.xs" />
+            What I Know
           </span>
         </v-flex>
         <v-flex 
           xs12
-          pa-5>
-          <v-layout>
+          :pa-5="!$vuetify.breakpoint.xs">
+          <v-layout wrap>
             <v-flex 
-              xs6
-              ml-5>
+              xs12
+              sm6
+              :pl-5="!$vuetify.breakpoint.xs">
               <v-flex
                 data-aos="flip-up"
                 data-aos-duration="1000"
@@ -71,15 +95,19 @@
                   my-4
                   pt-1
                   pl-3
-                  class="card-left-border"
                   v-for="item in education"
                   :key="item.id"
+                  text-xs-left
+                  class="card-left-border-primary-color"
                   data-aos="fade-up-right"
                   data-aos-duration="1000"
-                  data-aos-once="false">
+                  data-aos-once="false"
+                  data-aos-anchor-placement="bottom">
                   <span class="title"> {{item.type}} </span>
                   <v-flex 
-                    xs8 
+                    xs12
+                    sm9
+                    md8
                     pt-3
                     text-xs-right>
                     <span class="title primary-color"> {{item.degree}} </span> <br/>
@@ -90,32 +118,36 @@
               </v-layout>
             </v-flex>
             <v-flex 
-              xs6
-              ml-5>
+              xs12
+              sm6
+              :pl-5="!$vuetify.breakpoint.xs">
               <v-flex
                 data-aos="flip-up"
                 data-aos-duration="1000"
                 data-aos-once="false">
                 <span class="headline font-weight-bold primary-color">My Skills</span>
               </v-flex>
-              <v-layout column>
+              <v-layout 
+                column
+                text-xs-left>
                 <v-flex 
                   my-4
                   pt-1
-                  pl-3
-                  class="card-left-border"
                   v-for="item in skills"
                   :key="item.id"
                   data-aos="fade-up-left"
                   data-aos-duration="1000"
-                  data-aos-once="false">
+                  data-aos-once="false"
+                  data-aos-anchor-placement="bottom">
                   <span class="title primary-color"> {{item.title}} </span>
                   <v-flex 
-                    ml-4
-                    my-2
+                    mt-3
+                    ml-3
+                    pl-3
+                    class="card-left-border-secondary-color"
                     v-for="skill in item.items"
                     :key="skill.name">
-                    <span class="title"> {{skill.name}} <br/></span> 
+                    <span class="title"> {{skill.name}} <br/></span>
                   </v-flex>
                 </v-flex>
               </v-layout>
@@ -124,54 +156,84 @@
         </v-flex>
       </v-layout>
       <v-layout column>
-        <v-flex 
+        <v-flex
           xs12 
           pl-1
-          py-5>
-          <v-flex
-            data-aos="flip-up"
-            data-aos-duration="1000"
-            data-aos-once="false">
-            <span class="display-3">
-              <font-awesome-icon :icon="['fas', 'road']"/>
-              Where I've been.
-            </span>
-          </v-flex>
+          py-5
+          text-xs-center
+          text-sm-left
+          data-aos="flip-up"
+          data-aos-duration="1000"
+          data-aos-once="false"
+          data-aos-anchor-placement="bottom">
+          <span 
+            v-bind:class="{
+              'display-3': !$vuetify.breakpoint.xs,
+              'display-2 primary-color': $vuetify.breakpoint.xs,
+            }">
+            <font-awesome-icon :icon="['fas', 'road']"/>
+            <br v-if="$vuetify.breakpoint.xs" />
+            Where I've been
+          </span>
+        </v-flex>
+        <v-flex>
           <v-layout
-            pa-5 
-            wrap 
+            wrap  
+            :pa-5="!$vuetify.breakpoint.xs"           
             justify-center>
             <v-flex
-              xs10
+              xs12
+              md10
               class="timeline"
-              text-xs-center
               v-for="item in experience"
               :key="item.id"
               data-aos="fade-right"
               data-aos-duration="1000"
-              data-aos-once="false">
-              <span 
-                v-if="experience.indexOf(item) % 2 !== 0"
-                class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
-              </span>
-              <span class="title font-weight-bold">{{item.company}}</span> as a 
-              <span class="title primary-color">{{item.position}}</span>
-              <span
-                v-if="experience.indexOf(item) % 2 === 0"
-                class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
-              </span>
-              <v-flex 
-                :ml-5="experience.indexOf(item) % 2 !== 0"
-                :mr-5="experience.indexOf(item) % 2 === 0">
-                <span>{{item.time}}</span><br/>
-                <span>{{item.location}}</span> 
-                <v-flex mt-3>
-                  <span class="title"> {{item.body}} </span>
+              data-aos-once="false"
+              data-aos-anchor-placement="bottom">
+              <v-layout 
+                row 
+                wrap
+                :justify-end="experience.indexOf(item) % 2 !== 0">
+                <v-flex 
+                  xs12
+                  md1
+                  v-if="experience.indexOf(item) % 2 !== 0 || $vuetify.breakpoint.xs">
+                  <span 
+                    class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
+                  </span>
                 </v-flex>
-                <v-flex mt-2>
-                  <span > You can find out more about the company <a @click="openLink(item.link)">here</a>. </span>
+                <v-flex 
+                  xs12
+                  md11
+                  :pt-4="$vuetify.breakpoint.xs">
+                  <span class="title font-weight-bold">{{item.company}}</span> as a 
+                  <span class="title primary-color">{{item.position}}</span> <br/>
+                  <span>{{item.time}}</span><br/>
+                  <span>{{item.location}}</span> 
                 </v-flex>
-              </v-flex>
+                <v-flex 
+                  md1
+                  v-if="experience.indexOf(item) % 2 === 0 && !$vuetify.breakpoint.xs">
+                  <span
+                    class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
+                  </span>
+                </v-flex>
+                <v-flex 
+                  xs12
+                  md11>
+                  <v-flex mt-3>
+                    <span v-bind:class="{
+                      'title': !$vuetify.breakpoint.xs,
+                    }"> 
+                      {{item.body}} 
+                    </span>
+                  </v-flex>
+                  <v-flex mt-2>
+                    <span > You can find out more about the company <a @click="openLink(item.link)">here</a>. </span>
+                  </v-flex>
+                </v-flex>
+              </v-layout>
             </v-flex>
           </v-layout>
         </v-flex>
@@ -189,7 +251,7 @@ export default {
     return {
       about: "Hi there, my name is Vince Millora, a guy from the Philippines 🇵🇭🇵🇭. I'm a developer —a software developer— that enjoys coding " + 
       "and solving different logical problems. I'm currently a student studying the Japanese language at " +
-      "Bridge Institute of Technology in Okutama, Tokyo, Japan. I'm residing in the residence of the school's dorm. " + 
+      "Bridge Institute of Technology in Okutama, Tokyo, Japan. I'm residing in the dormitory of the school. " + 
       "In the morning, I study the Japanese language by developing an I.T. project " +
       "and during the end of the school's semester, I present my project using Japanese. In the afternoon, " + 
       "I'm a Web Developer of 株式会社Jellyfish.",
@@ -275,22 +337,22 @@ export default {
           title: 'Programming',
           items: [
             {
-              name: '・Front-end Web Development (SASS, Vue, React)',
+              name: 'Front-end Web Development (SASS, Vue, React)',
             },
             {
-              name: '・Software Development (Java, C#)',
+              name: 'Software Development (Java, C#)',
             },
             {
-              name: '・Mobile Development (Java, React Native)',
+              name: 'Mobile Development (Java, React Native)',
             },
             {
-              name: '・Database Design',
+              name: 'Database Design',
             },
             {
-              name: '・Database Programming (MySQL, SQLite)',
+              name: 'Database Programming (MySQL, SQLite)',
             },
             {
-              name: '・Blockchain Development (Ethereum)',
+              name: 'Blockchain Development (Ethereum)',
             },
           ],
         },
@@ -298,19 +360,19 @@ export default {
           title: 'Design',
           items: [
             {
-              name: '・Adobe Photoshop',
+              name: 'Adobe Photoshop',
             },
             {
-              name: '・Adobe Illustrator',
+              name: 'Adobe Illustrator',
             },
             {
-              name: '・UI Design',
+              name: 'UI Design',
             },
             {
-              name: '・Wireframe Design',
+              name: 'Wireframe Design',
             },
             {
-              name: '・Graphic Design',
+              name: 'Graphic Design',
             },
           ],
         },
@@ -318,13 +380,13 @@ export default {
           title: 'Language',
           items: [
             {
-              name: '・Filipino (Native)',
+              name: 'Filipino (Native)',
             },
             {
-              name: '・English (Proficient)',
+              name: 'English (Bilingual)',
             },
             {
-              name: '・Japanese (Conversational)',
+              name: 'Japanese (Conversational)',
             },
           ],
         },

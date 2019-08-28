@@ -1,133 +1,161 @@
 <template>
   <v-layout wrap>
-    <v-flex pt-5 text-xs-center class="web-component">
-      <v-layout wrap>
+    <v-flex
+      xs12 
+      pt-5 
+      text-xs-center 
+      class="web-component">
+      <v-layout 
+        wrap
+        fill-height
+        align-center>
         <v-flex 
-          xs6
+          xs12
+          md6
           my-5
+          text-xs-center
+          text-sm-left
           data-aos="fade-up-right"
           data-aos-duration="1000"
           data-aos-once="false">
-          <v-layout
-            column
-            fill-height
-            align-center
-            justify-center
-            text-xs-right>
-            <div>
-              <v-flex xs12>
-                <span class="display-2">Say hello, feel free to drop a message.🙂</span>
+          <v-flex xs12>
+            <span 
+              v-bind:class="{
+                'display-2': !$vuetify.breakpoint.xs,
+                'display-1': $vuetify.breakpoint.xs,
+              }">
+              Say hello, feel free to drop a message.🙂
+            </span>
+          </v-flex>
+          <v-flex 
+            xs12
+            mt-3
+            mb-5>
+            <span class="title primary-color font-weight-regular">Here are my contact details: </span>
+          </v-flex>
+          <v-flex xs12>                
+            <v-layout 
+              wrap 
+              mb-4>
+              <v-flex 
+                xs12
+                md8>
+                <span class="title">{{address}}</span>
               </v-flex>
               <v-flex 
                 xs12
-                mt-3
-                mb-5>
-                <span class="title primary-color font-weight-regular">Here are my contact details: </span>
+                md4
+                text-md-right
+                text-xs-center>
+                <span class="title font-weight-bold">
+                  Address
+                  <font-awesome-icon 
+                    color="#41B883" 
+                    :icon="['fas', 'map-marker-alt']"/>
+                </span>
               </v-flex>
-              <v-flex xs12>                
-                <v-layout mb-4>
-                  <v-flex xs8>
-                    <span class="title">{{address}}</span>
-                  </v-flex>
-                  <v-flex 
-                    xs4
-                    text-xs-right>
-                    <span class="title font-weight-bold">
-                      Address
-                      <font-awesome-icon 
-                        color="#41B883" 
-                        :icon="['fas', 'map-marker-alt']"/>
-                    </span>
-                  </v-flex>
-                </v-layout>
-                <v-layout mb-4>
-                  <v-flex xs8>
-                    <span class="title">
-                        {{call}}(
-                        <font-awesome-icon 
-                          color="#41B883" 
-                          :icon="['fas', 'phone-volume']"/>
-                        ) | {{text}}(
-                        <font-awesome-icon 
-                          color="#41B883" 
-                          :icon="['fas', 'sms']"/>
-                        )
-                    </span>
-                  </v-flex>
-                  <v-flex 
-                    xs4
-                    text-xs-right>
-                    <span class="title font-weight-bold">
-                      Contact Number
-                      <font-awesome-icon 
-                        color="#41B883" 
-                        :icon="['fas', 'mobile']"/>
-                    </span>
-                  </v-flex>
-                </v-layout>
-                <v-layout mb-4>
-                  <v-flex xs8>
-                    <span class="title">
-                      {{line}}
-                    </span>
-                  </v-flex>
-                  <v-flex 
-                    xs4
-                    text-xs-right>
-                    <span class="title font-weight-bold">
-                      Line
-                      <font-awesome-icon 
-                        color="#41B883" 
-                        :icon="['fab', 'line']"/>
-                    </span>
-                  </v-flex>
-                </v-layout>
-                <v-layout mb-4>
-                  <v-flex xs8>
-                    <a 
-                      class="title"
-                      @click="sendMail()">
-                      {{email}}
-                    </a>
-                  </v-flex>
-                  <v-flex 
-                    xs4
-                    text-xs-right>
-                    <span class="title font-weight-bold">
-                      Email
-                      <font-awesome-icon 
-                        color="#41B883" 
-                        :icon="['fas', 'envelope-open-text']"/>
-                    </span>
-                  </v-flex>
-                </v-layout>
+            </v-layout>
+            <v-layout 
+              wrap
+              mb-4>
+              <v-flex 
+                xs12
+                md8>
+                <span class="title">
+                    {{call}}(
+                    <font-awesome-icon 
+                      color="#41B883" 
+                      :icon="['fas', 'phone-volume']"/>
+                    ) <br/> {{text}}(
+                    <font-awesome-icon 
+                      color="#41B883" 
+                      :icon="['fas', 'sms']"/>
+                    )
+                </span>
               </v-flex>
-            </div>
-          </v-layout>
+              <v-flex 
+                xs12
+                md4
+                text-md-right
+                text-xs-center>
+                <span class="title font-weight-bold">
+                  Contact Number
+                  <font-awesome-icon 
+                    color="#41B883" 
+                    :icon="['fas', 'mobile']"/>
+                </span>
+              </v-flex>
+            </v-layout>
+            <v-layout 
+              wrap
+              mb-4>
+              <v-flex 
+                xs12
+                md8>
+                <span class="title">
+                  {{line}}
+                </span>
+              </v-flex>
+              <v-flex 
+                xs12
+                md4
+                text-md-right
+                text-xs-center>
+                <span class="title font-weight-bold">
+                  Line
+                  <font-awesome-icon 
+                    color="#41B883" 
+                    :icon="['fab', 'line']"/>
+                </span>
+              </v-flex>
+            </v-layout>
+            <v-layout 
+              wrap
+              mb-4>
+              <v-flex 
+                xs12
+                md8>
+                <a 
+                  class="title"
+                  @click="sendMail()">
+                  {{email}}
+                </a>
+              </v-flex>
+              <v-flex 
+                xs12
+                md4
+                text-md-right
+                text-xs-center>
+                <span class="title font-weight-bold">
+                  Email
+                  <font-awesome-icon 
+                    color="#41B883" 
+                    :icon="['fas', 'envelope-open-text']"/>
+                </span>
+              </v-flex>
+            </v-layout>
+          </v-flex>
         </v-flex>
         <v-flex
-          xs6
+          xs12
+          sm6
           data-aos="fade-up-left"
           data-aos-duration="1000"
           data-aos-once="false">
-          <v-layout
-            column
-            fill-height
-            align-center
-            justify-center>
-            <div>
-              <v-img
-                src="/undraw_contact_us.png"
-                contain
-                width="70vh"
-              ></v-img>
-            </div>
-          </v-layout>
+          <v-img
+            src="/undraw_contact_us.png"
+            contain
+            v-bind:width="{
+              '70vh': !$vuetify.breakpoint.xs,
+              '100%': $vuetify.breakpoint.xs,
+            }"
+          ></v-img>
         </v-flex>
       </v-layout>
     </v-flex>
     <v-flex 
       xs12
+      px-3
       text-xs-center
       data-aos="fade-up"
       data-aos-duration="1000"

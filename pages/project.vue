@@ -1,17 +1,25 @@
 <template>
   <v-layout wrap>
-    
     <v-flex class="web-component">
-      <v-layout column>
+      <v-layout 
+        wrap
+        justify-center
+        text-xs-center
+        text-sm-left>
         <v-flex 
           xs12
           py-5
           data-aos="flip-up"
           data-aos-duration="2000"
           data-aos-once="false">
-          <span class="display-3">
+          <span 
+            v-bind:class="{
+              'display-3': !$vuetify.breakpoint.xs,
+              'display-2 primary-color': $vuetify.breakpoint.xs,
+            }">
             <font-awesome-icon :icon="['fas', 'code']"/>
-            What I've Done.
+            <br v-if="$vuetify.breakpoint.xs" />
+            What I've Done
           </span>
         </v-flex>
         <v-flex
@@ -30,13 +38,20 @@
                     <v-img
                       src="/undraw_under_construction.png"
                       contain
-                      height="50vh"
-                      width="50vh"
+                      v-bind:height="{
+                        '50vh': !$vuetify.breakpoint.xs,
+                      }"
+                      width="50vw"
                     ></v-img>
                   </v-flex>
                 </div>
               </v-layout>
-              <span class="title">This part is still under development. I'm working on it and will post my projects here as soon as I can. </span>
+              <span
+                v-bind:class="{
+                  'title': !$vuetify.breakpoint.xs,
+                }"> 
+                This part is still under development. I'm working on it and will post my projects here as soon as I can. 
+              </span>
             </v-layout>
           </v-card>
         </v-flex>
