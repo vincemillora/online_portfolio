@@ -1,10 +1,11 @@
 <template>
-  <v-layout wrap>
+  <v-layout 
+    wrap
+    class="web-component">
     <v-flex
       xs12 
       pt-5 
-      text-xs-center 
-      class="web-component">
+      text-xs-center>
       <v-layout 
         wrap
         fill-height
@@ -14,7 +15,7 @@
           md6
           my-5
           text-xs-center
-          text-sm-left
+          text-md-left
           data-aos="fade-up-right"
           data-aos-duration="1000"
           data-aos-once="false">
@@ -138,8 +139,8 @@
         </v-flex>
         <v-flex
           xs12
-          sm6
-          data-aos="fade-up-left"
+          md6
+          :data-aos="animation"
           data-aos-duration="1000"
           data-aos-once="false">
           <v-img
@@ -162,7 +163,7 @@
       data-aos-once="false">
       <span class="subheading"> You can download my resume <a @click="openLink('https://drive.google.com/file/d/1qIuwWvRrsr-SkA2S0QGQzq2Rv7QSNLfl/view?usp=sharing')">here</a>. </span> <br/>
       <span class="subheading font-weight-thin">
-        Or, you can contact me through my social media accounts right down here.
+        Or, you can also contact me through my social media accounts right down here.
         <br/>
         <font-awesome-icon 
           color="#41B883" 
@@ -263,6 +264,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default {
+  animation:'fade-up-left',
   data() {
     return {
       address: 'Kawai 594, Okutama City, Nishitama District, Tokyo, Japan 🇯🇵',
@@ -274,6 +276,8 @@ export default {
   },
   mounted() {
     AOS.init();
+    this.onResize();
+    window.addEventListener('resize', this.onResize, { passive: true });
   },
   methods: {
     sendMail(){
@@ -281,7 +285,14 @@ export default {
     },
     openLink(link){
       window.open(link);
-    }
+    },
+    onResize() {
+      if(window.innerWidth < 960) {
+        this.animation = 'fade-up-right';
+      } else {
+        this.animation = 'fade-up-left';
+      }
+    },
   }
 }
 </script>

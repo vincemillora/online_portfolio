@@ -1,8 +1,5 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center>
+  <v-layout>
     <v-flex>
       <v-layout wrap>
         <v-flex 
@@ -33,14 +30,14 @@
                 ></v-img>
               </v-flex>
               <v-flex
+                v-if="!this.$vuetify.breakpoint.xs"
                 xs12
                 sm4
-                data-aos="fade-left"
+                :data-aos="animation"
                 data-aos-duration="1000"
                 data-aos-once="false"
                 data-aos-mirror="true">
                 <v-img
-                  v-if="!this.$vuetify.breakpoint.xs"
                   src="/undraw_code_review.png"
                   contain
                   width="50vw"
@@ -87,23 +84,26 @@ export default {
   data() {
     return {
       src: '',
+      animation:'fade-left',
     }
   },
   mounted() {
     AOS.init();
-    this.isMobile = window.innerWidth < 600;
 
-    if(window.innerWidth < 600) {
+    if(window.innerWidth < 960) {
       this.src = '/prof_pic.jpg'
+      this.animation = 'fade-right';
     } else {
       this.src = '/about_me.jpg'
     }
     
     window.addEventListener('resize', () => {
-      if(window.innerWidth < 600) {
+      if(window.innerWidth < 960) {
         this.src = '/prof_pic.jpg'
+        this.animation = 'fade-right';
       } else {
         this.src = '/about_me.jpg'
+        this.animation = 'fade-left';
       }
     }, { passive: true })
   },

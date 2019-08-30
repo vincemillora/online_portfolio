@@ -20,7 +20,7 @@
             }">
             <font-awesome-icon :icon="['fas', 'user-tie']"/>
             <br v-if="$vuetify.breakpoint.xs" />
-            Who am I
+            Who am I?
           </span>
         </v-flex>
         <v-flex>
@@ -30,18 +30,29 @@
             align-center>
             <v-flex 
               xs12
-              sm8
-              :pa-5="!$vuetify.breakpoint.xs"
+              sm12
+              md8
+              :pa-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"
               data-aos="fade-up-right"
               data-aos-duration="1000"
               data-aos-once="false"
               data-aos-anchor-placement="bottom">
-              <span class="title"> {{ about }} </span>
-              <span class="title"> Right now, I'm looking for a job opportunity and I hope I could interest you in some way or another. You can checkout my resume <a @click="openLink('https://drive.google.com/file/d/1qIuwWvRrsr-SkA2S0QGQzq2Rv7QSNLfl/view?usp=sharing')">here</a> just in case.</span> 
+              <span class="title"> 
+                Hi there, my name is Vince Carreon Millora, a guy from the Philippines 🇵🇭🇵🇭. I am a software developer that enjoys coding
+                and solving complex problems. I have experiences in using different technologies; I've been a back-end developer designing databases and APIs, a Blockchain developer 
+                creating Smart Contracts, and a front-end engineer designing and creating web and mobile systems. In every position I've been, and every tasks I had, I've always aimed
+                for a good result that would not only satisfy myself, but also the team and the client. I'm a teamplayer that is always ready to assist my teammates when they are in need. 
+                That's why one of my goal as a developer is to become a Full-Stack, so that I will be able to produce good results and assist my team even if the task is back-end or front-end.
+                Currently, I am studying the Japanese language at <a @click="'http://bit-okutama.jp/'">Bridge Institute of Technology</a> to efficiently deliver my thoughts and solutions even while staying in Japan. 
+                In the morning, I study Japanese by developing an I.T. project and during the end of the school's semester, I present my project using Japanese. In the afternoon, 
+                I am a Web Developer of <a @click="'https://jellyfish-g.co.jp/en/'">株式会社Jellyfish</a>. 
+                Right now, my graduation is fast approaching and I'm looking for a job opportunity. I hope I could interest you in some way or another. 
+                You can checkout my resume <a @click="openLink('https://drive.google.com/file/d/1qIuwWvRrsr-SkA2S0QGQzq2Rv7QSNLfl/view?usp=sharing')">here</a> just in case.
+              </span> 
             </v-flex>
             <v-flex 
-              v-if="!$vuetify.breakpoint.xs"
-              sm4 
+              v-if="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"
+              md4
               data-aos="fade-up-left"
               data-aos-duration="1000"
               data-aos-once="false"
@@ -73,17 +84,17 @@
             }"> 
             <font-awesome-icon :icon="['fas', 'brain']"/>
             <br v-if="$vuetify.breakpoint.xs" />
-            What I Know
+            What I Know?
           </span>
         </v-flex>
         <v-flex 
           xs12
-          :pa-5="!$vuetify.breakpoint.xs">
+          :pa-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm">
           <v-layout wrap>
             <v-flex 
               xs12
               sm6
-              :pl-5="!$vuetify.breakpoint.xs">
+              :pl-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm">
               <v-flex
                 data-aos="flip-up"
                 data-aos-duration="1000"
@@ -120,7 +131,7 @@
             <v-flex 
               xs12
               sm6
-              :pl-5="!$vuetify.breakpoint.xs">
+              :pl-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm">
               <v-flex
                 data-aos="flip-up"
                 data-aos-duration="1000"
@@ -135,7 +146,7 @@
                   pt-1
                   v-for="item in skills"
                   :key="item.id"
-                  data-aos="fade-up-left"
+                  :data-aos="animation"
                   data-aos-duration="1000"
                   data-aos-once="false"
                   data-aos-anchor-placement="bottom">
@@ -173,13 +184,13 @@
             }">
             <font-awesome-icon :icon="['fas', 'road']"/>
             <br v-if="$vuetify.breakpoint.xs" />
-            Where I've been
+            Where I've been?
           </span>
         </v-flex>
         <v-flex>
           <v-layout
             wrap  
-            :pa-5="!$vuetify.breakpoint.xs"           
+            :pa-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"           
             justify-center>
             <v-flex
               xs12
@@ -198,7 +209,7 @@
                 <v-flex 
                   xs12
                   md1
-                  v-if="experience.indexOf(item) % 2 !== 0 || $vuetify.breakpoint.xs">
+                  v-if="experience.indexOf(item) % 2 !== 0 || $vuetify.breakpoint.xs || $vuetify.breakpoint.sm">
                   <span 
                     class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
                   </span>
@@ -206,7 +217,7 @@
                 <v-flex 
                   xs12
                   md11
-                  :pt-4="$vuetify.breakpoint.xs">
+                  :pt-4="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm">
                   <span class="title font-weight-bold">{{item.company}}</span> as a 
                   <span class="title primary-color">{{item.position}}</span> <br/>
                   <span>{{item.time}}</span><br/>
@@ -214,7 +225,7 @@
                 </v-flex>
                 <v-flex 
                   md1
-                  v-if="experience.indexOf(item) % 2 === 0 && !$vuetify.breakpoint.xs">
+                  v-if="experience.indexOf(item) % 2 === 0 && !$vuetify.breakpoint.xs  && !$vuetify.breakpoint.sm">
                   <span
                     class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
                   </span>
@@ -249,12 +260,7 @@ import 'aos/dist/aos.css';
 export default {
   data() {
     return {
-      about: "Hi there, my name is Vince Millora, a guy from the Philippines 🇵🇭🇵🇭. I'm a developer —a software developer— that enjoys coding " + 
-      "and solving different logical problems. I'm currently a student studying the Japanese language at " +
-      "Bridge Institute of Technology in Okutama, Tokyo, Japan. I'm residing in the dormitory of the school. " + 
-      "In the morning, I study the Japanese language by developing an I.T. project " +
-      "and during the end of the school's semester, I present my project using Japanese. In the afternoon, " + 
-      "I'm a Web Developer of 株式会社Jellyfish.",
+      animation:'fade-up-left',
       experience: [
         {
           id: 1,
@@ -262,26 +268,26 @@ export default {
           position: 'Junior Front-end Web Developer',
           location: 'Tokyo, Japan 🇯🇵',
           time: "April 2019 - Present",
-          body: '株式会社Jellyfish is a company that helps people around the ' + 
+          body: '株式会社Jellyfish is a company that assists people around the ' + 
                 'world to find opportunities in Japan. I too was someone who ' + 
                 'took an opportunity from 株式会社Jellyfish and became a Japanese ' + 
-                'language student and a Web Developer at Bridge Institute of Technology ' + 
-                '(BIT). Specifically, I am a member of the front-end development team of ' + 
-                "BIT's I.T. division.",
+                'language student at Bridge Institute of Technology (BIT) while doing ' + 
+                'a part-time job as a developer at 株式会社Jellyfish. Specifically, ' + 
+                "I am a member of the front-end development team of BIT's I.T. division.",
           link: 'https://jellyfish-g.co.jp/en/',
         },
         {
           id: 2,
-          company: '株式会社Jellyfish',
+          company: '株式会社Tart',
           position: 'Blockchain Developer',
           location: 'Tokyo, Japan 🇯🇵',
           time: "October 2018 - March 2019",
           body: 'Before I became a Front-end Web Developer at 株式会社Jellyfish, ' + 
                 'I participated in a Blockchain bootcamp at Bridge Institute of Technology ' + 
-                'for 3 months. After the bootcamp, I was recruited as a Blockchain Developer ' + 
+                'for 3 months. After the bootcamp, I was recruited as a Blockchain Developer by 株式会社Tart ' + 
                 'for one of the projects  of the company. I was a member of that project ' + 
-                'until the project closed March of 2019. ',
-          link: 'http://bit-okutama.jp/',
+                'until 株式会社Tart parted ways with 株式会社Jellyfish on March of 2019. ',
+          link: 'https://www.tart.tokyo/',
         },
         {
           id: 3,
@@ -395,11 +401,20 @@ export default {
   },
   mounted() {
     AOS.init();
+    this.onResize();
+    window.addEventListener('resize', this.onResize, { passive: true });
   },
   methods: {
     openLink(link) {
       window.open(link);
-    }
+    },
+    onResize() {
+      if(window.innerWidth < 960) {
+        this.animation = 'fade-up-right';
+      } else {
+        this.animation = 'fade-up-left';
+      }
+    },
   }
 }
 </script>
