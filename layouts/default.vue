@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-toolbar
-      v-if="!this.$vuetify.breakpoint.xs"
+      v-if="!this.$vuetify.breakpoint.xs && !this.$vuetify.breakpoint.sm"
       color="transparent"
       absolute
       fixed

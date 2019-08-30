@@ -140,15 +140,16 @@
         <v-flex
           xs12
           md6
-          :data-aos="animation"
+          data-aos="fade-up-right"
           data-aos-duration="1000"
-          data-aos-once="false">
+          data-aos-once="false"
+          data-aos-anchor-placement="bottom">
           <v-img
             src="/undraw_contact_us.png"
             contain
             v-bind:width="{
-              '70vh': !$vuetify.breakpoint.xs,
-              '100%': $vuetify.breakpoint.xs,
+              '70vh': !$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm,
+              '100%': $vuetify.breakpoint.xs || $vuetify.breakpoint.sm,
             }"
           ></v-img>
         </v-flex>
@@ -288,7 +289,7 @@ export default {
     },
     onResize() {
       if(window.innerWidth < 960) {
-        this.animation = 'fade-up-right';
+        this.animation = 'fade-up';
       } else {
         this.animation = 'fade-up-left';
       }
