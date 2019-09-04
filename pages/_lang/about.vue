@@ -20,7 +20,7 @@
             }">
             <font-awesome-icon :icon="['fas', 'user-tie']"/>
             <br v-if="$vuetify.breakpoint.xs" />
-            {{ $t("about_me") }} 
+            {{ $t("about_page.aboutMe_title") }} 
           </span>
         </v-flex>
         <v-flex>
@@ -31,7 +31,6 @@
             <v-flex 
               xs12
               sm12
-              md8
               :pa-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"
               data-aos="fade-up-right"
               data-aos-duration="1000"
@@ -42,15 +41,55 @@
                 and solving complex problems. I have experiences in using different technologies; I've been a back-end developer designing databases and APIs, a Blockchain developer 
                 creating Smart Contracts, and a front-end engineer designing and creating web and mobile systems. In every position I've been, and every tasks I had, I've always aimed
                 for a good result that would not only satisfy myself, but also the team and the client. I'm a teamplayer that is always ready to assist my teammates when they are in need. 
-                That's why one of my goal as a developer is to become a Full-Stack, so that I will be able to produce good results and assist my team even if the task is back-end or front-end.
+                That's why one of my goal as a developer is to become a Full-Stack, so that I will be able to produce good results and assist my team even if the task is back-end or front-end. <br/><br/>
+                
                 Currently, I am studying the Japanese language at <a @click="'http://bit-okutama.jp/'">Bridge Institute of Technology</a> to efficiently deliver my thoughts and solutions even while staying in Japan. 
                 In the morning, I study Japanese by developing an I.T. project and during the end of the school's semester, I present my project using Japanese. In the afternoon, 
-                I am a Web Developer of <a @click="'https://jellyfish-g.co.jp/en/'">株式会社Jellyfish</a>. 
+                I am a Web Developer of <a @click="'https://jellyfish-g.co.jp/en/'">株式会社Jellyfish</a>. <br/><br/>
+                
                 Right now, my graduation is fast approaching and I'm looking for a job opportunity. I hope I could interest you in some way or another. 
-                You can checkout my resume <a @click="openLink('https://drive.google.com/file/d/1qIuwWvRrsr-SkA2S0QGQzq2Rv7QSNLfl/view?usp=sharing')">here</a> just in case.
+                You can checkout my resume here just in case.
               </span> 
+              <v-flex 
+                mt-3
+                text-sm-right>
+                <v-btn 
+                  depressed
+                  class="social-button-wrapper"
+                  @click="openLink('https://drive.google.com/file/d/11HGKUDt-yN5KZV4Umf-xhnDcUph5YnjK/view?usp=sharing')"
+                  target="_blank">
+                  <span 
+                    class="title"
+                    id="icon">
+                    English
+                  </span>
+                </v-btn>
+                <v-btn 
+                  depressed
+                  class="social-button-wrapper"
+                  @click="openLink('https://drive.google.com/file/d/14tBU9NPkO_-btrQgulE_1FEbZoUMx5Fz/view?usp=sharing')"
+                  target="_blank">
+                  <span 
+                    class="title"
+                    id="icon">
+                    履歴書
+                  </span>
+                </v-btn>
+                <v-btn 
+                  depressed
+                  class="social-button-wrapper"
+                  @click="openLink('https://drive.google.com/file/d/16CaA2VC18B_dYe0Pac99KdQjFE3et8SX/view?usp=sharing')"
+                  target="_blank">
+                  <span 
+                    class="title"
+                    id="icon">
+                    職務経歴書
+                  </span>
+                </v-btn>
+              </v-flex>
             </v-flex>
-            <v-flex 
+            
+            <!-- <v-flex 
               v-if="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"
               md4
               data-aos="fade-up-left"
@@ -63,7 +102,7 @@
                 contain
                 width="400px"
               ></v-img>
-            </v-flex>
+            </v-flex> -->
           </v-layout>
         </v-flex>
       </v-layout>
@@ -84,7 +123,7 @@
             }"> 
             <font-awesome-icon :icon="['fas', 'brain']"/>
             <br v-if="$vuetify.breakpoint.xs" />
-            {{ $t("knowledge") }} 
+            {{ $t("about_page.knowledge_title") }} 
           </span>
         </v-flex>
         <v-flex 
@@ -99,7 +138,7 @@
                 data-aos="flip-up"
                 data-aos-duration="1000"
                 data-aos-once="false">
-                <span class="headline font-weight-bold primary-color">My Education and Certificates</span>
+                <span class="headline font-weight-bold primary-color">{{ $t("about_page.education_name") }} </span>
               </v-flex>
               <v-layout column>
                 <v-flex 
@@ -136,7 +175,7 @@
                 data-aos="flip-up"
                 data-aos-duration="1000"
                 data-aos-once="false">
-                <span class="headline font-weight-bold primary-color">My Skills</span>
+                <span class="headline font-weight-bold primary-color">{{ $t("about_page.skill_name") }} </span>
               </v-flex>
               <v-layout 
                 column
@@ -184,7 +223,7 @@
             }">
             <font-awesome-icon :icon="['fas', 'road']"/>
             <br v-if="$vuetify.breakpoint.xs" />
-            {{ $t("experience") }} 
+            {{ $t("about_page.experience_title") }} 
           </span>
         </v-flex>
         <v-flex>

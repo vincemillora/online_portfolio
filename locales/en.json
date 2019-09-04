@@ -4,11 +4,23 @@
   "project": "Projects",
   "contact": "Contact",
   "intro_title": "Software Developer, Creative Thinker, Learner.",
-  "intro_subtitle": "I'm a web and systems developer, and a computer games enthusiast.",  
-  "about_me": "Who am I?",
-  "knowledge": "What I know?",
-  "experience": "Where I've been?",
+  "intro_subtitle": "I'm a web and systems developer, and a computer games enthusiast.",
+  "about_page": {
+    "aboutMe_title": "Who am I",
+    "knowledge_title": "What I know",
+    "experience_title": "Where I've been",
+    "education_name": "My Education and Certificates",
+    "skill_name": "My Skills"
+  },  
   "about_project": "What I've done?",
-  "contact_intro": "Say hello, feel free to drop a message.",
-  "contact_details": "Here are my contact details:"
+  "contact_page": {
+    "contact_intro": "Say hello, feel free to drop a message.",
+    "contact_details": "Here are my contact details:",
+    "address_name": "Address",
+    "contactNumber_name": "Contact Number",
+    "line_name": "Line",
+    "email_name": "Email",
+    "resume": "You can download my resume here.",
+    "social_accounts": "Or, you can also contact me through my social media accounts right down here."
+  }
 }

@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-toolbar
-      v-if="!this.$vuetify.breakpoint.xs && !this.$vuetify.breakpoint.sm"
+      
       color="transparent"
       absolute
       fixed
@@ -10,6 +10,7 @@
         wrap
         class="header">
         <v-flex 
+          v-if="!this.$vuetify.breakpoint.xs && !this.$vuetify.breakpoint.sm"
           sm12
           md6
           text-sm-left>
@@ -86,7 +87,8 @@
         <v-flex 
           xs12
           md6
-          text-xs-right>
+          text-md-right
+          text-xs-center>
           <v-btn
             flat
             nuxt
