@@ -58,7 +58,7 @@
         </v-flex>
       </v-layout>
       <About id="about"/>
-      <!-- <Project id="project"/> -->
+      <Project id="project"/>
       <Contact id="contact"/>
     </v-flex>
   </v-layout>
