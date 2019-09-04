@@ -32,7 +32,7 @@
               xs12
               sm12
               :pa-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"
-              data-aos="fade-up-right"
+              data-aos="zoom-in"
               data-aos-duration="1000"
               data-aos-once="false"
               data-aos-anchor-placement="bottom">
@@ -149,7 +149,7 @@
                   :key="item.id"
                   text-xs-left
                   class="card-left-border-primary-color"
-                  data-aos="fade-up-right"
+                  data-aos="fade-right"
                   data-aos-duration="1000"
                   data-aos-once="false"
                   data-aos-anchor-placement="bottom">
@@ -299,7 +299,7 @@ import 'aos/dist/aos.css';
 export default {
   data() {
     return {
-      animation:'fade-up-left',
+      animation:'fade-left',
       experience: [
         {
           id: 1,
@@ -449,9 +449,9 @@ export default {
     },
     onResize() {
       if(window.innerWidth < 960) {
-        this.animation = 'fade-up-right';
+        this.animation = 'fade-right';
       } else {
-        this.animation = 'fade-up-left';
+        this.animation = 'fade-left';
       }
     },
   }

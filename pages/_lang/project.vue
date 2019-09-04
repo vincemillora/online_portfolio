@@ -24,37 +24,59 @@
         </v-flex>
         <v-flex
           xs12
-          :pa-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"
-          data-aos="fade-up"
+          pt-5
+          :px-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"
+          v-for="item in projects"
+          :key="item.id"
+          data-aos="zoom-in"
           data-aos-duration="2000"
-          data-aos-once="false">
+          data-aos-once="false"
+          data-aos-anchor-placement="bottom">
           <v-hover v-slot:default="{ hover }">
             <v-expand-transition>
               <v-card
                 flat
-                :dark="hover">
-                <v-layout wrap>
-                <v-flex md6>
-                  <v-img
-                    :aspect-ratio="16/9"
-                    src="https://cdn.vuetifyjs.com/images/cards/kitchen.png">
-                      <div
-                        v-if="hover"
-                        class="d-flex black reveal"
-                        style="height: 100%;">
-                      </div>
-                  </v-img>
-                </v-flex>
-                <v-flex 
-                  md6
-                  class="card-right-border-primary-color">
-                    <div class="font-weight-light title mb-2">For the perfect meal</div>
-                    <h3 class="display-1 font-weight-light mb-2">QW cooking utensils</h3>
-                    <div class="font-weight-light title mb-2">
-                      Our Vintage kitchen utensils delight any chef.<br>
-                      Made of bamboo by hand
-                    </div>
-                </v-flex>
+                :dark="hover"
+                >
+                <v-layout 
+                  wrap 
+                  align-center
+                  justify-center
+                  v-bind:class="{
+                    'card-right-border-primary-color': projects.indexOf(item) % 2 !== 0 && !$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm,
+                    'card-left-border-primary-color': projects.indexOf(item) % 2 === 0 && !$vuetify.breakpoint.xs  && !$vuetify.breakpoint.sm,
+                    'card-bottom-border-primary-color': $vuetify.breakpoint.xs  || $vuetify.breakpoint.sm,
+                  }">
+                  <v-flex
+                    xs12 
+                    md5
+                    text-xs-center
+                    v-if="projects.indexOf(item) % 2 === 0 && !$vuetify.breakpoint.xs  && !$vuetify.breakpoint.sm">
+                    <span class="title font-weight-bold">Still Under Development</span> <br/><br/>
+                    <span class="title">I will post my projects here as soon as I can. </span> <br/><br/> 
+                  </v-flex>
+                  <v-flex 
+                    xs12
+                    md7>
+                    <v-img
+                      :aspect-ratio="16/9"
+                      src="/undraw_under_construction.png">
+                        <div
+                          v-if="hover"
+                          class="d-flex black reveal"
+                          style="height: 100%;">
+                        </div>
+                    </v-img>
+                  </v-flex>
+                  <v-flex
+                    xs12 
+                    md5
+                    text-xs-center
+                    v-if="projects.indexOf(item) % 2 !== 0 || $vuetify.breakpoint.xs || $vuetify.breakpoint.sm">
+                    <span class="title font-weight-bold">Still Under Development</span> <br/><br/>
+                    <span class="title">I will post my projects here as soon as I can. </span> <br/><br/>
+                    <!-- <span class="subtitle-1">asdad</span>   -->
+                  </v-flex>
                 </v-layout>
               </v-card>
             </v-expand-transition>
@@ -70,6 +92,26 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default {
+  data() {
+    return {
+      projects: [
+        {
+          id: 1,
+          company: '株式会社Jellyfish',
+          position: 'Junior Front-end Web Developer',
+          location: 'Tokyo, Japan 🇯🇵',
+          link: 'https://jellyfish-g.co.jp/en/',
+        },
+        {
+          id: 2,
+          company: '株式会社Tart',
+          position: 'Blockchain Developer',
+          location: 'Tokyo, Japan 🇯🇵',
+          link: 'https://www.tart.tokyo/',
+        },
+      ],
+    }
+  },
   mounted() {
     AOS.init();
   },
