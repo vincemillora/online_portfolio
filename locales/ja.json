@@ -1,0 +1,26 @@
+{
+  "lang": "English",
+  "about": "私のこと",
+  "project": "プロジェクト",
+  "contact": "連絡先",
+  "intro_title": "ソフトウェア開発者、創造的思想家、学習者。",
+  "intro_subtitle": "私はWebとシステム開発者で、コンピューターゲームの愛好者です。",
+  "about_page": {
+    "aboutMe_title": "私のこと",
+    "knowledge_title": "知っていること",
+    "experience_title": "働いていた会社",
+    "education_name": "教育と功績",
+    "skill_name": "スキル"
+  },
+  "about_project": "作ったプロジェクト",
+  "contact_page": {
+    "contact_intro": "メッセージはいつでも送信できます。",
+    "contact_details": "私の連絡先の情報はこちらです：",
+    "address_name": "住所",
+    "contactNumber_name": "携帯番号",
+    "line_name": "Line",
+    "email_name": "Eメール",
+    "resume": "こちらに履歴書と職務経歴書をダウンロードできます。",
+    "social_accounts": "または、こちらのソーシャルメディアアカウントから私に連絡もできます。"
+  }
+}

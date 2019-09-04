@@ -88,10 +88,29 @@ body{
   }
 }
 
+.card-right-border {
+  &-primary-color {
+    border-right: 2px solid getPrimaryColor();
+  }
+  &-secondary-color {
+    border-right: 2px solid getSecondaryColor();
+  }
+}
+
+.card-bottom-border {
+  &-primary-color {
+    border-bottom: 2px solid getPrimaryColor();
+  }
+  &-secondary-color {
+    border-bottom: 2px solid getSecondaryColor();
+  }
+}
+
 .social-button {
   &-wrapper {
     background-color: white !important;
     border: 2px solid #35495E;
+    text-transform: none !important;
   }
 
   &-wrapper:hover #icon {
@@ -149,6 +168,15 @@ body{
   position: relative;
   transition: .5s;
   z-index: 3;
+}
+
+.reveal {
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  opacity: 0.50;
 }
 
 .whole-page {
