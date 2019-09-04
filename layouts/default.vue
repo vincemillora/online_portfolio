@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <v-toolbar
-      
       color="transparent"
       absolute
       fixed
@@ -37,7 +36,7 @@
               </svg>
             </div>
           </v-btn>
-          <v-btn
+          <!-- <v-btn
             flat
             nuxt
             href="#project"
@@ -59,7 +58,7 @@
                 </text>
               </svg>
             </div>
-          </v-btn>
+          </v-btn> -->
           <v-btn
             flat
             nuxt
