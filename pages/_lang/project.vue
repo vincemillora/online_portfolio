@@ -4,7 +4,6 @@
       <v-layout 
         wrap
         justify-center
-        text-xs-center
         text-sm-left>
         <v-flex 
           xs12
@@ -24,60 +23,44 @@
         </v-flex>
         <v-flex
           xs12
-          pt-5
-          :px-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"
+          pt-3
+          :px-2="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"
           v-for="item in projects"
           :key="item.id"
+          :md6="item.type === 'desktop'"
+          :md4="item.type === 'mobile'"
           data-aos="zoom-in"
           data-aos-duration="2000"
           data-aos-once="false"
           data-aos-anchor-placement="bottom">
           <v-hover v-slot:default="{ hover }">
             <v-expand-transition>
-              <v-card
-                flat
-                :dark="hover"
-                >
-                <v-layout 
-                  wrap 
-                  align-center
-                  justify-center
-                  v-bind:class="{
-                    'card-right-border-primary-color': projects.indexOf(item) % 2 !== 0 && !$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm,
-                    'card-left-border-primary-color': projects.indexOf(item) % 2 === 0 && !$vuetify.breakpoint.xs  && !$vuetify.breakpoint.sm,
-                    'card-bottom-border-primary-color': $vuetify.breakpoint.xs  || $vuetify.breakpoint.sm,
-                  }">
-                  <v-flex
-                    xs12 
-                    md5
-                    text-xs-center
-                    v-if="projects.indexOf(item) % 2 === 0 && !$vuetify.breakpoint.xs  && !$vuetify.breakpoint.sm">
-                    <span class="title font-weight-bold">Still Under Development</span> <br/><br/>
-                    <span class="title">I will post my projects here as soon as I can. </span> <br/><br/> 
-                  </v-flex>
+              <v-card 
+                height="350px" 
+                class="cursor-pointer"
+                @click="showDetails()">
+                <div class="back-image">
+                  <v-img
+                    height="100%"
+                    width="100%"
+                    :src="item.imgSrc">
+                      <div
+                        v-if="hover"
+                        class="d-flex black reveal"
+                        style="height: 100%;">
+                      </div>
+                  </v-img>
+                </div>
+                <div class="front-description">
                   <v-flex 
-                    xs12
-                    md7>
-                    <v-img
-                      :aspect-ratio="16/9"
-                      src="/undraw_under_construction.png">
-                        <div
-                          v-if="hover"
-                          class="d-flex black reveal"
-                          style="height: 100%;">
-                        </div>
-                    </v-img>
+                    ma-3 
+                    v-bind:class="{
+                      'white--text': hover
+                    }">
+                    <span class="title font-weight-bold">{{item.title}}</span> <br/>
+                    <span class="body">{{item.subtitle}}</span>
                   </v-flex>
-                  <v-flex
-                    xs12 
-                    md5
-                    text-xs-center
-                    v-if="projects.indexOf(item) % 2 !== 0 || $vuetify.breakpoint.xs || $vuetify.breakpoint.sm">
-                    <span class="title font-weight-bold">Still Under Development</span> <br/><br/>
-                    <span class="title">I will post my projects here as soon as I can. </span> <br/><br/>
-                    <!-- <span class="subtitle-1">asdad</span>   -->
-                  </v-flex>
-                </v-layout>
+                </div>
               </v-card>
             </v-expand-transition>
           </v-hover>
@@ -97,16 +80,26 @@ export default {
       projects: [
         {
           id: 1,
-          company: '株式会社Jellyfish',
-          position: 'Junior Front-end Web Developer',
-          location: 'Tokyo, Japan 🇯🇵',
+          type: 'mobile',
+          title: 'Yonmoque',
+          subtitle: 'Mobile Game',
+          imgSrc: '/projects/Yonmoque.jpg',
           link: 'https://jellyfish-g.co.jp/en/',
         },
         {
           id: 2,
-          company: '株式会社Tart',
-          position: 'Blockchain Developer',
-          location: 'Tokyo, Japan 🇯🇵',
+          type: 'desktop',
+          title: 'Babel Method',
+          subtitle: 'E-learning Plarform',
+          imgSrc: '/projects/Babel-method.png',
+          link: 'https://www.tart.tokyo/',
+        },
+        {
+          id: 3,
+          type: 'desktop',
+          title: 'CryptoViper',
+          subtitle: 'E-learning Plarform',
+          imgSrc: '/projects/Cryptoviper.jpg',
           link: 'https://www.tart.tokyo/',
         },
       ],
@@ -115,5 +108,10 @@ export default {
   mounted() {
     AOS.init();
   },
+  methods: {
+    showDetails() {
+      alert('This feature will come soon.')
+    }
+  }
 }
 </script>
