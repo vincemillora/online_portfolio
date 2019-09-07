@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <v-toolbar
-      v-if="!this.$vuetify.breakpoint.xs && !this.$vuetify.breakpoint.sm"
       color="transparent"
       absolute
       fixed
@@ -10,6 +9,7 @@
         wrap
         class="header">
         <v-flex 
+          v-if="!this.$vuetify.breakpoint.xs && !this.$vuetify.breakpoint.sm"
           sm12
           md6
           text-sm-left>
@@ -31,7 +31,7 @@
                   x="50%" 
                   y="70%" 
                   class="subheading custom-button-svg-text font-weight-light">
-                  About Me
+                  {{ $t('about') }} 
                 </text>
               </svg>
             </div>
@@ -54,7 +54,7 @@
                   x="50%" 
                   y="70%" 
                   class="subheading custom-button-svg-text font-weight-light">
-                  Projects
+                  {{ $t("project") }} 
                 </text>
               </svg>
             </div>
@@ -77,7 +77,36 @@
                   x="50%" 
                   y="70%" 
                   class="subheading custom-button-svg-text font-weight-light">
-                  Contact Me
+                  {{ $t("contact") }} 
+                </text>
+              </svg>
+            </div>
+          </v-btn>
+        </v-flex>
+        <v-flex 
+          xs12
+          md6
+          text-md-right
+          text-xs-center>
+          <v-btn
+            flat
+            nuxt
+            @click="changeLang"
+            class="px-0"
+            color="transparent">
+            <div class="custom-button-svg-wrapper">
+              <svg 
+                height="40" 
+                width="100">
+                <rect 
+                  id="shape" 
+                  height="40" 
+                  width="100"/>
+                <text 
+                  x="50%" 
+                  y="70%" 
+                  class="subheading custom-button-svg-text font-weight-light">
+                  {{ $t('lang') }} 
                 </text>
               </svg>
             </div>
@@ -96,7 +125,7 @@
         text-xs-center>
         <v-flex
           py-3
-          class="primary-color-background white--text">
+          class="secondary-color-background">
           <v-layout 
             wrap
             justify-center>
@@ -106,10 +135,17 @@
               text-sm-left
               text-xs-center
               :pl-5="!this.$vuetify.breakpoint.xs"
-              >
-              Built with <strong><a class="white--text" @click="openLink('https://nuxtjs.org/')">NUXT.JS</a></strong>.
-              Illustrations by <strong><a class="white--text" @click="openLink('https://undraw.co/illustrations')">unDraw</a></strong>.
-              Icons from <strong><a class="white--text" @click="openLink('https://fontawesome.com/')">FontAwesome</a></strong>.
+              class="white--text">
+              <span v-if="$i18n.locale === 'en'">
+                Built with <strong><a class="white--text" @click="openLink('https://nuxtjs.org/')">NUXT.JS</a></strong>.
+                Illustrations by <strong><a class="white--text" @click="openLink('https://undraw.co/illustrations')">unDraw</a></strong>.
+                Icons from <strong><a class="white--text" @click="openLink('https://fontawesome.com/')">FontAwesome</a></strong>.
+              </span>
+              <span v-else>
+                <strong><a class="white--text" @click="openLink('https://nuxtjs.org/')">NUXT.JS</a></strong>で構築。
+                <strong><a class="white--text" @click="openLink('https://undraw.co/illustrations')">unDraw</a></strong>からの絵。
+                <strong><a class="white--text" @click="openLink('https://fontawesome.com/')">FontAwesome</a></strong>のアイコン。
+              </span>
             </v-flex>
             <v-flex 
               xs12
@@ -117,7 +153,8 @@
               text-sm-right
               text-xs-center
               :pr-5="!this.$vuetify.breakpoint.xs"
-              :pt-2="this.$vuetify.breakpoint.xs">
+              :pt-2="this.$vuetify.breakpoint.xs"
+              class="white--text">
               &copy;2019 — <strong>ビンス</strong>
             </v-flex>
           </v-layout>
@@ -129,9 +166,18 @@
 
 <script>
 export default {
+  computed: {
+    otherLang() {
+      return this.$i18n.locale == 'ja' ? 'en' : 'ja';
+    }
+  },
   methods: {
     openLink(link) {
       window.open(link);
+    },
+    changeLang() {
+      const router = this.$router;
+      this.$store.dispatch('changeLang', { router, lang: this.otherLang })
     }
   }
 }

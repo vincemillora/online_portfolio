@@ -14,7 +14,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/fav-icon.png' },
       {
         rel: 'stylesheet',
         href:
@@ -25,7 +25,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#41B883' },
   /*
   ** Global CSS
   */
@@ -38,28 +38,30 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-
-  ],
+  router: {
+    middleware: 'i18n'
+  },
+  plugins: ['~/plugins/i18n.js'],
+  generate: {
+    routes: ['/', '/ja/']
+  },
   /*
   ** Nuxt.js modules
   */
   modules: [
-    [
-      'nuxt-fontawesome', {
-        imports: [
-         {
-           set: '@fortawesome/free-solid-svg-icons',
-           icons: ['fas']
-         },
-         {
-           set:'@fortawesome/free-brands-svg-icons',
-           icons: ['fab']
-         }
-       ]
-      }
-    ],
     '@nuxtjs/vuetify',
+    ['nuxt-fontawesome', {
+      imports: [
+        {
+          set: '@fortawesome/free-solid-svg-icons',
+          icons: ['fas']
+        },
+        {
+          set:'@fortawesome/free-brands-svg-icons',
+          icons: ['fab']
+        }
+      ]
+    }],
   ],
   /*
   ** vuetify module configuration
