@@ -43,9 +43,9 @@
                 for a good result that would not only satisfy myself, but also the team and the client. I'm a teamplayer that is always ready to assist my teammates when they are in need. 
                 That's why one of my goal as a developer is to become a Full-Stack, so that I will be able to produce good results and assist my team even if the task is back-end or front-end. <br/><br/>
                 
-                Currently, I am studying the Japanese language at <a @click="'http://bit-okutama.jp/'">Bridge Institute of Technology</a> to efficiently deliver my thoughts and solutions even while staying in Japan. 
+                Currently, I am studying the Japanese language at <a @click="openLink('http://bit-okutama.jp/')">Bridge Institute of Technology</a> to efficiently deliver my thoughts and solutions even while staying in Japan. 
                 In the morning, I study Japanese by developing an I.T. project and during the end of the school's semester, I present my project using Japanese. In the afternoon, 
-                I am a Web Developer of <a @click="'https://jellyfish-g.co.jp/en/'">株式会社Jellyfish</a>. <br/><br/>
+                I am a Web Developer of <a @click="openLink('https://jellyfish-g.co.jp/en/')">株式会社Jellyfish</a>. <br/><br/>
                 
                 Right now, my graduation is fast approaching and I'm looking for a job opportunity. I hope I could interest you in some way or another. 
                 You can checkout my resume here just in case.
@@ -205,6 +205,9 @@
           </v-layout>
         </v-flex>
       </v-layout>
+      
+    </v-flex>
+    <v-flex class="web-component tertiary-color-background">
       <v-layout column>
         <v-flex
           xs12 
@@ -226,67 +229,65 @@
             {{ $t("about_page.experience_title") }} 
           </span>
         </v-flex>
-        <v-flex>
-          <v-layout
-            wrap  
-            :pa-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"           
-            justify-center>
-            <v-flex
-              xs12
-              md10
-              class="timeline"
-              v-for="item in experience"
-              :key="item.id"
-              data-aos="fade-right"
-              data-aos-duration="1000"
-              data-aos-once="false"
-              data-aos-anchor-placement="bottom">
-              <v-layout 
-                row 
-                wrap
-                :justify-end="experience.indexOf(item) % 2 !== 0">
-                <v-flex 
-                  xs12
-                  md1
-                  v-if="experience.indexOf(item) % 2 !== 0 || $vuetify.breakpoint.xs || $vuetify.breakpoint.sm">
-                  <span 
-                    class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
+        <v-layout
+          wrap  
+          :pa-5="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"           
+          justify-center>
+          <v-flex
+            xs12
+            md10
+            class="timeline"
+            v-for="item in experience"
+            :key="item.id"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-once="false"
+            data-aos-anchor-placement="bottom">
+            <v-layout 
+              row 
+              wrap
+              :justify-end="experience.indexOf(item) % 2 !== 0">
+              <v-flex 
+                xs12
+                md1
+                v-if="experience.indexOf(item) % 2 !== 0 || $vuetify.breakpoint.xs || $vuetify.breakpoint.sm">
+                <span 
+                  class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
+                </span>
+              </v-flex>
+              <v-flex 
+                xs12
+                md11
+                :pt-4="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm">
+                <span class="title font-weight-bold">{{item.company}}</span> {{$t('about_page.as_a')}}
+                <span class="title primary-color">{{item.position}}</span> <br/>
+                <span>{{item.time}}</span><br/>
+                <span>{{item.location}}</span> 
+              </v-flex>
+              <v-flex 
+                md1
+                v-if="experience.indexOf(item) % 2 === 0 && !$vuetify.breakpoint.xs  && !$vuetify.breakpoint.sm">
+                <span
+                  class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
+                </span>
+              </v-flex>
+              <v-flex 
+                xs12
+                md11>
+                <v-flex mt-3>
+                  <span v-bind:class="{
+                    'title': !$vuetify.breakpoint.xs,
+                  }"> 
+                    {{item.body}} 
                   </span>
                 </v-flex>
-                <v-flex 
-                  xs12
-                  md11
-                  :pt-4="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm">
-                  <span class="title font-weight-bold">{{item.company}}</span> as a 
-                  <span class="title primary-color">{{item.position}}</span> <br/>
-                  <span>{{item.time}}</span><br/>
-                  <span>{{item.location}}</span> 
+                <v-flex mt-2>
+                  <span > You can find out more about the company <a @click="openLink(item.link)">here</a>. </span>
                 </v-flex>
-                <v-flex 
-                  md1
-                  v-if="experience.indexOf(item) % 2 === 0 && !$vuetify.breakpoint.xs  && !$vuetify.breakpoint.sm">
-                  <span
-                    class="headline font-weight-bold white--text"><span class="timeline-number">{{item.id}}</span>
-                  </span>
-                </v-flex>
-                <v-flex 
-                  xs12
-                  md11>
-                  <v-flex mt-3>
-                    <span v-bind:class="{
-                      'title': !$vuetify.breakpoint.xs,
-                    }"> 
-                      {{item.body}} 
-                    </span>
-                  </v-flex>
-                  <v-flex mt-2>
-                    <span > You can find out more about the company <a @click="openLink(item.link)">here</a>. </span>
-                  </v-flex>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </v-flex>
+              </v-flex>
+            </v-layout>
+          </v-flex>
+        </v-layout>
       </v-layout>
     </v-flex>
   </v-layout>

@@ -20,7 +20,7 @@
                 data-aos-once="false"
                 data-aos-mirror="true">
                 <span class="display-2">{{ $t("intro_title") }}🤓 </span> <br/> <br/> <br/>
-                <span class="title primary-color font-weight-regular">{{ $t("intro_subtitle") }}</span>
+                <span class="title primary-color">{{ $t("intro_subtitle") }}</span>
                 <v-img
                   style="margin-top: 25px"
                   v-if="this.$vuetify.breakpoint.xs"

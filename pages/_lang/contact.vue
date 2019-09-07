@@ -41,7 +41,7 @@
               <v-flex 
                 xs12
                 md8>
-                <span class="title">{{address}}</span>
+                <span class="title">{{ $t('contact_page.address_value') }}</span>
               </v-flex>
               <v-flex 
                 xs12
@@ -157,7 +157,7 @@
     </v-flex>
     <v-flex 
       xs12
-      px-3
+      pt-3
       text-xs-center
       data-aos="flip-up"
       data-aos-duration="1000"
@@ -307,7 +307,6 @@ import 'aos/dist/aos.css';
 export default {
   data() {
     return {
-      address: 'Kawai 594, Okutama City, Nishitama District, Tokyo, Japan 🇯🇵',
       email: 'vcmillora@up.edu.ph',
       call: '050-6868-9176',
       text: '080-7695-7291',

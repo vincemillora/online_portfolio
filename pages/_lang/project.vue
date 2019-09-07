@@ -1,19 +1,20 @@
 <template>
   <v-layout wrap>
-    <v-flex class="web-component">
+    <v-flex class="web-component secondary-color-background">
       <v-layout 
         wrap
-        justify-center
-        text-sm-left>
+        justify-center>
         <v-flex 
           xs12
           py-5
+          text-xs-center
+          text-sm-left
           data-aos="flip-up"
           data-aos-duration="2000"
           data-aos-once="false">
           <span 
             v-bind:class="{
-              'display-3': !$vuetify.breakpoint.xs,
+              'display-3 white--text': !$vuetify.breakpoint.xs,
               'display-2 primary-color': $vuetify.breakpoint.xs,
             }">
             <font-awesome-icon :icon="['fas', 'code']"/>
@@ -23,7 +24,8 @@
         </v-flex>
         <v-flex
           xs12
-          pt-3
+          pb-3
+          text-sm-left
           :px-2="!$vuetify.breakpoint.xs && !$vuetify.breakpoint.sm"
           v-for="item in projects"
           :key="item.id"
@@ -100,6 +102,14 @@ export default {
           title: 'CryptoViper',
           subtitle: 'E-learning Plarform',
           imgSrc: '/projects/Cryptoviper.jpg',
+          link: 'https://www.tart.tokyo/',
+        },
+        {
+          id: 4,
+          type: 'mobile',
+          title: 'DXC Navigator',
+          subtitle: 'Desktop Application',
+          imgSrc: '/projects/DXC.jpg',
           link: 'https://www.tart.tokyo/',
         },
       ],
