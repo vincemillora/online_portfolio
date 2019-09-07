@@ -1,5 +1,5 @@
 {
-  "lang": "日本語",
+  "lang": "日本語 🇯🇵",
   "about": "About",
   "project": "Projects",
   "contact": "Contact",
@@ -10,7 +10,8 @@
     "knowledge_title": "What I know",
     "experience_title": "Where I've been",
     "education_name": "My Education and Certificates",
-    "skill_name": "My Skills"
+    "skill_name": "My Skills",
+    "as_a": "as a"
   },  
   "about_project": "What I've done?",
   "contact_page": {
@@ -20,6 +21,7 @@
     "contactNumber_name": "Contact Number",
     "line_name": "Line",
     "email_name": "Email",
+    "address_value": "Kawai 594, Okutama City, Nishitama District, Tokyo, Japan 🇯🇵",
     "resume": "You can download my resume here.",
     "social_accounts": "Or, you can also contact me through my social media accounts right down here."
   }
