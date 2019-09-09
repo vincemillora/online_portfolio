@@ -155,7 +155,7 @@
                   my-4
                   pt-1
                   pl-3
-                  v-for="item in education"
+                  v-for='item in $t("education")'
                   :key="item.id"
                   text-xs-left
                   class="card-left-border-primary-color"
@@ -193,7 +193,7 @@
                 <v-flex 
                   my-4
                   pt-1
-                  v-for="item in skills"
+                  v-for='item in $t("skills")'
                   :key="item.id"
                   :data-aos="animation"
                   data-aos-duration="1000"

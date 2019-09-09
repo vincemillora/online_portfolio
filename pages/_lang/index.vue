@@ -47,7 +47,6 @@
         </v-flex>
         <v-flex 
           xs12
-          py-5
           my-5
           data-aos="fade-up"
           data-aos-duration="1000"

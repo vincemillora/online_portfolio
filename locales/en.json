@@ -24,5 +24,87 @@
     "address_value": "Kawai 594, Okutama City, Nishitama District, Tokyo, Japan 🇯🇵",
     "resume": "You can download my resume here.",
     "social_accounts": "Or, you can also contact me through my social media accounts right down here."
-  }
+  },
+  "education": [
+    {
+      "id": 3,
+      "type": "Bridge Institute of Technology",
+      "degree": "Certificate of Completion",
+      "focus": "Japanese Language",
+      "time": "2018 - 2020"
+    },
+    {
+      "id": 2,
+      "type": "PhilNITS (J.I.T.S.E.)",
+      "degree": "I.T. Passport Certification",
+      "focus": "Certificate",
+      "time": "2018"
+    },
+    {
+      "id": 1,
+      "type": "University of the Philippines",
+      "degree": "Bachelor's Degree",
+      "focus": "Computer Science",
+      "time": "2013 - 2017"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Programming",
+      "items": [
+        {
+          "name": "Front-end Web Development (SASS, Vue, React)"
+        },
+        {
+          "name": "Software Development (Java, C#)"
+        },
+        {
+          "name": "Mobile Development (Java, React Native)"
+        },
+        {
+          "name": "Database Design"
+        },
+        {
+          "name": "Database Programming (MySQL, SQLite)"
+        },
+        {
+          "name": "Blockchain Development (Ethereum)"
+        }
+      ]
+    },
+    {
+      "title": "Design",
+      "items": [
+        {
+          "name": "Adobe Photoshop"
+        },
+        {
+          "name": "Adobe Illustrator"
+        },
+        {
+          "name": "UI Design"
+        },
+        {
+          "name": "Wireframe Design"
+        },
+        {
+          "name": "Graphic Design"
+        }
+      ]
+    },
+    {
+      "title": "Language",
+      "items": [
+        {
+          "name": "Filipino (Native)"
+        },
+        {
+          "name": "English (Proficient)"
+        },
+        {
+          "name": "Japanese (Conversational)"
+        }
+      ]
+    }
+  ]
 }
