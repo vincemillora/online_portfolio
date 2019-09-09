@@ -304,9 +304,6 @@
 </template>
 
 <script>
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
 export default {
   data() {
     return {
@@ -450,7 +447,6 @@ export default {
     }
   },
   mounted() {
-    AOS.init();
     this.onResize();
     window.addEventListener('resize', this.onResize, { passive: true });
   },

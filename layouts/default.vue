@@ -1,119 +1,5 @@
 <template>
   <v-app>
-    <v-toolbar
-      color="transparent"
-      absolute
-      fixed
-      flat>
-      <v-layout           
-        wrap
-        class="header">
-        <v-flex 
-          v-if="!this.$vuetify.breakpoint.xs && !this.$vuetify.breakpoint.sm"
-          sm12
-          md6
-          text-sm-left>
-          <v-btn
-            flat
-            nuxt
-            href="#about"
-            class="px-0"
-            color="transparent">
-            <div class="custom-button-svg-wrapper">
-              <svg 
-                height="40" 
-                width="100">
-                <rect 
-                  id="shape" 
-                  height="40" 
-                  width="100"/>
-                <text 
-                  x="50%" 
-                  y="70%" 
-                  class="subheading custom-button-svg-text font-weight-light">
-                  {{ $t('about') }} 
-                </text>
-              </svg>
-            </div>
-          </v-btn>
-          <v-btn
-            flat
-            nuxt
-            href="#project"
-            class="px-0"
-            color="transparent">
-            <div class="custom-button-svg-wrapper">
-              <svg 
-                height="40" 
-                width="100">
-                <rect 
-                  id="shape" 
-                  height="40" 
-                  width="100"/>
-                <text 
-                  x="50%" 
-                  y="70%" 
-                  class="subheading custom-button-svg-text font-weight-light">
-                  {{ $t("project") }} 
-                </text>
-              </svg>
-            </div>
-          </v-btn>
-          <v-btn
-            flat
-            nuxt
-            href="#contact"
-            class="px-0"
-            color="transparent">
-            <div class="custom-button-svg-wrapper">
-              <svg 
-                height="40" 
-                width="100">
-                <rect 
-                  id="shape" 
-                  height="40" 
-                  width="100"/>
-                <text 
-                  x="50%" 
-                  y="70%" 
-                  class="subheading custom-button-svg-text font-weight-light">
-                  {{ $t("contact") }} 
-                </text>
-              </svg>
-            </div>
-          </v-btn>
-        </v-flex>
-        <v-flex 
-          xs12
-          md6
-          text-md-right
-          text-xs-center>
-          <v-btn
-            flat
-            nuxt
-            @click="changeLang"
-            class="px-0"
-            color="transparent">
-            <div class="custom-button-svg-wrapper">
-              <svg 
-                height="40" 
-                width="100">
-                <rect 
-                  id="shape" 
-                  height="40" 
-                  width="100"/>
-                <text 
-                  x="50%" 
-                  y="70%" 
-                  class="subheading custom-button-svg-text font-weight-light">
-                  {{ $t('lang') }} 
-                </text>
-              </svg>
-            </div>
-          </v-btn>
-        </v-flex>
-      </v-layout>
-    </v-toolbar>
     <v-content>
       <nuxt/>
     </v-content>
@@ -165,20 +51,18 @@
 </template>
 
 <script>
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default {
-  computed: {
-    otherLang() {
-      return this.$i18n.locale == 'ja' ? 'en' : 'ja';
-    }
+  props: ['error'],
+  mounted() {
+    AOS.init();
   },
   methods: {
     openLink(link) {
       window.open(link);
     },
-    changeLang() {
-      const router = this.$router;
-      this.$store.dispatch('changeLang', { router, lang: this.otherLang })
-    }
   }
 }
 </script>

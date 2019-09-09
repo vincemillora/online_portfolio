@@ -1,0 +1,8 @@
+NODE_ENV=production
+# VUE_APP_BASE_URI=http://192.168.0.119:3000
+VUE_APP_BASE_URI=http://ec2-54-95-154-19.ap-northeast-1.compute.amazonaws.com/
+VUE_APP_S3_URI=https://bit-gwen.s3-ap-northeast-1.amazonaws.com
+VUE_APP_INSTRUCTION_URI=https://drive.google.com/file/d/1OJizH-oS8yxJgO-RPnUKJQiU45bW4I_5/view?usp=sharing
+VUE_APP_SPEECH_FOLDER=/images/
+VUE_APP_SHADOWING_FOLDER=/audios/
+VUE_APP_VERSION=v0.1.0-alpha

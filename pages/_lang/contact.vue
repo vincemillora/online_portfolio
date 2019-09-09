@@ -301,9 +301,6 @@
 </template>
 
 <script>
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
 export default {
   data() {
     return {
@@ -312,9 +309,6 @@ export default {
       text: '080-7695-7291',
       line: 'vcmillora',
     }
-  },
-  mounted() {
-    AOS.init();
   },
   methods: {
     sendMail(){
