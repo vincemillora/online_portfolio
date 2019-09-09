@@ -36,7 +36,7 @@
               data-aos-duration="1000"
               data-aos-once="false"
               data-aos-anchor-placement="bottom">
-              <span class="title"> 
+              <span class="title" v-if="$i18n.locale === 'en'"> 
                 Hi there, my name is Vince Carreon Millora, a guy from the Philippines 🇵🇭🇵🇭. I am a software developer that enjoys coding
                 and solving complex problems. I have experiences in using different technologies; I've been a back-end developer designing databases and APIs, a Blockchain developer 
                 creating Smart Contracts, and a front-end engineer designing and creating web and mobile systems. In every position I've been, and every tasks I had, I've always aimed
@@ -45,11 +45,21 @@
                 
                 Currently, I am studying the Japanese language at <a @click="openLink('http://bit-okutama.jp/')">Bridge Institute of Technology</a> to efficiently deliver my thoughts and solutions even while staying in Japan. 
                 In the morning, I study Japanese by developing an I.T. project and during the end of the school's semester, I present my project using Japanese. In the afternoon, 
-                I am a Web Developer of <a @click="openLink('https://jellyfish-g.co.jp/en/')">株式会社Jellyfish</a>. <br/><br/>
+                I am a Web Developer of <a @click="openLink('https://jellyfish-g.co.jp/en/')">株式会社JELLYFISH</a>. <br/><br/>
                 
                 As a junior developer, I'm always open for new opportunities that will enhance my current skills. I hope I could interest you in some way or another. 
                 You can checkout my resume here just in case.
               </span> 
+              <span class="title" v-else>
+                こんにちは！ビンス・カリヨン・ミルヨラです。フィリピンから参りました。私は、コーディングの複雑な問題の解決を楽しんでいるソフトウェア開発者です。私は、バックエンド開発者としてデータベースとAPIを設計したり、ブロックチェーン開発者としてスマートコントラクトを作成したり、
+                およびフロントエンド開発者としてWebとモバイルのUIを設計して作成したりした経験があります。今までに働いていたすべてのポジションとタスクにおいて、自分自身だけではなくチームとクライアントも満足させる良い結果を常に目指してきました。私はチームメイトが助けが必要なときに、
+                いつでもチームメイトを手伝えるチームプレーヤーです。開発者として、私の1つの目標がフルスタックになることです。そのため、タスクがバックエンドでもフロントエンドでも、私は良い結果を出したり、チームを手伝ったりすることができます。<br/><br/>
+
+                現在私は日本の<a @click="openLink('http://bit-okutama.jp/')">Bridge Institute of Technology</a>で日本語を勉強しています。午前中に、ITのプロジェクトを開発しながら、日本語を勉強しています。学期末前に、私は日本語で奥多摩人々にプロジェクトを発表します。
+                午後は、<a @click="openLink('https://jellyfish-g.co.jp/en/')">株式会社JELLYFISH</a>のウェブ開発者しています。<br/><br/>
+
+                開発者として、スキルを改善するために、私はエンジニア機会を挑戦したいです。あなたに興味を持っていただければ幸いです。ここで私の履歴書と職務経歴書をチェックできます。よろしくお願いします。
+              </span>
               <v-flex 
                 mt-3
                 text-sm-right>

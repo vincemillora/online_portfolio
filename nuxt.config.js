@@ -14,7 +14,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/fav-icon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/avataaars.png' },
       {
         rel: 'stylesheet',
         href:
